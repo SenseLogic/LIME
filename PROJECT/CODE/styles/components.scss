@@ -1,0 +1,159 @@
+$button-padding: 12px 24px;
+$button-border-radius: 6px;
+$button-transition: all 0.2s ease;
+
+.button
+{
+    display: inline-block;
+    padding: $button-padding;
+    border: none;
+    border-radius: $button-border-radius;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: $button-transition;
+    text-align: center;
+}
+
+.button.primary
+{
+    background-color: #3498db;
+    color: white;
+}
+
+.button.primary:hover
+{
+    background-color: darken( #3498db, 10% );
+    transform: translateY( -1px );
+}
+
+.button.secondary
+{
+    background-color: #95a5a6;
+    color: white;
+}
+
+.button.secondary:hover
+{
+    background-color: darken( #95a5a6, 10% );
+    transform: translateY( -1px );
+}
+
+.button.outline
+{
+    background-color: transparent;
+    color: #3498db;
+    border: 2px solid #3498db;
+}
+
+.button.outline:hover
+{
+    background-color: #3498db;
+    color: white;
+}
+
+.button.small
+{
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+.button.large
+{
+    padding: 16px 32px;
+    font-size: 18px;
+}
+
+.button:disabled
+{
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.button:disabled:hover
+{
+    transform: none;
+}
+
+.card
+{
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba( 0, 0, 0, 0.1 );
+    padding: 24px;
+    margin: 16px 0;
+}
+
+.card .card-header
+{
+    margin-bottom: 16px;
+}
+
+.card .card-header .card-title
+{
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.card .card-header .card-subtitle
+{
+    font-size: 14px;
+    color: #7f8c8d;
+    margin: 4px 0 0 0;
+}
+
+.card .card-body
+{
+    color: #34495e;
+    line-height: 1.6;
+}
+
+.card .card-footer
+{
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #ecf0f1;
+}
+
+.form-group
+{
+    margin-bottom: 20px;
+}
+
+.form-group .form-label
+{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.form-group .form-input
+{
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ecf0f1;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.2s ease;
+}
+
+.form-group .form-input:focus
+{
+    outline: none;
+    border-color: #3498db;
+}
+
+.form-group .form-input.error
+{
+    border-color: #e74c3c;
+}
+
+.form-group .form-error
+{
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 4px;
+}
