@@ -1,0 +1,660 @@
+$blackColor: #000000;
+$whiteColor: #FFFFFF;
+
+$grayColor: #9E9E9E;
+$grayColor50: mix($grayColor, #000000, 90%);
+$grayColor100: mix($grayColor, #000000, 80%);
+$grayColor150: mix($grayColor, #000000, 70%);
+$grayColor200: mix($grayColor, #000000, 60%);
+$grayColor250: mix($grayColor, #000000, 50%);
+$grayColor300: mix($grayColor, #000000, 40%);
+$grayColor350: mix($grayColor, #000000, 30%);
+$grayColor400: mix($grayColor, #000000, 20%);
+$grayColor450: mix($grayColor, #000000, 10%);
+$grayColor500: $grayColor;
+$grayColor550: mix($grayColor, #FFFFFF, 10%);
+$grayColor600: mix($grayColor, #FFFFFF, 20%);
+$grayColor650: mix($grayColor, #FFFFFF, 30%);
+$grayColor700: mix($grayColor, #FFFFFF, 40%);
+$grayColor750: mix($grayColor, #FFFFFF, 50%);
+$grayColor800: mix($grayColor, #FFFFFF, 60%);
+$grayColor850: mix($grayColor, #FFFFFF, 70%);
+$grayColor900: mix($grayColor, #FFFFFF, 80%);
+$grayColor950: mix($grayColor, #FFFFFF, 90%);
+
+$amberColor: #FBBF24;
+$amberColor50: mix($amberColor, #000000, 90%);
+$amberColor100: mix($amberColor, #000000, 80%);
+$amberColor150: mix($amberColor, #000000, 70%);
+$amberColor200: mix($amberColor, #000000, 60%);
+$amberColor250: mix($amberColor, #000000, 50%);
+$amberColor300: mix($amberColor, #000000, 40%);
+$amberColor350: mix($amberColor, #000000, 30%);
+$amberColor400: mix($amberColor, #000000, 20%);
+$amberColor450: mix($amberColor, #000000, 10%);
+$amberColor500: $amberColor;
+$amberColor550: mix($amberColor, #FFFFFF, 10%);
+$amberColor600: mix($amberColor, #FFFFFF, 20%);
+$amberColor650: mix($amberColor, #FFFFFF, 30%);
+$amberColor700: mix($amberColor, #FFFFFF, 40%);
+$amberColor750: mix($amberColor, #FFFFFF, 50%);
+$amberColor800: mix($amberColor, #FFFFFF, 60%);
+$amberColor850: mix($amberColor, #FFFFFF, 70%);
+$amberColor900: mix($amberColor, #FFFFFF, 80%);
+$amberColor950: mix($amberColor, #FFFFFF, 90%);
+
+$blueColor: #2196F3;
+$blueColor50: mix($blueColor, #000000, 90%);
+$blueColor100: mix($blueColor, #000000, 80%);
+$blueColor150: mix($blueColor, #000000, 70%);
+$blueColor200: mix($blueColor, #000000, 60%);
+$blueColor250: mix($blueColor, #000000, 50%);
+$blueColor300: mix($blueColor, #000000, 40%);
+$blueColor350: mix($blueColor, #000000, 30%);
+$blueColor400: mix($blueColor, #000000, 20%);
+$blueColor450: mix($blueColor, #000000, 10%);
+$blueColor500: $blueColor;
+$blueColor550: mix($blueColor, #FFFFFF, 10%);
+$blueColor600: mix($blueColor, #FFFFFF, 20%);
+$blueColor650: mix($blueColor, #FFFFFF, 30%);
+$blueColor700: mix($blueColor, #FFFFFF, 40%);
+$blueColor750: mix($blueColor, #FFFFFF, 50%);
+$blueColor800: mix($blueColor, #FFFFFF, 60%);
+$blueColor850: mix($blueColor, #FFFFFF, 70%);
+$blueColor900: mix($blueColor, #FFFFFF, 80%);
+$blueColor950: mix($blueColor, #FFFFFF, 90%);
+
+$cyanColor: #00BCD4;
+$cyanColor50: mix($cyanColor, #000000, 90%);
+$cyanColor100: mix($cyanColor, #000000, 80%);
+$cyanColor150: mix($cyanColor, #000000, 70%);
+$cyanColor200: mix($cyanColor, #000000, 60%);
+$cyanColor250: mix($cyanColor, #000000, 50%);
+$cyanColor300: mix($cyanColor, #000000, 40%);
+$cyanColor350: mix($cyanColor, #000000, 30%);
+$cyanColor400: mix($cyanColor, #000000, 20%);
+$cyanColor450: mix($cyanColor, #000000, 10%);
+$cyanColor500: $cyanColor;
+$cyanColor550: mix($cyanColor, #FFFFFF, 10%);
+$cyanColor600: mix($cyanColor, #FFFFFF, 20%);
+$cyanColor650: mix($cyanColor, #FFFFFF, 30%);
+$cyanColor700: mix($cyanColor, #FFFFFF, 40%);
+$cyanColor750: mix($cyanColor, #FFFFFF, 50%);
+$cyanColor800: mix($cyanColor, #FFFFFF, 60%);
+$cyanColor850: mix($cyanColor, #FFFFFF, 70%);
+$cyanColor900: mix($cyanColor, #FFFFFF, 80%);
+$cyanColor950: mix($cyanColor, #FFFFFF, 90%);
+
+$greenColor: #10B981;
+$greenColor50: mix($greenColor, #000000, 90%);
+$greenColor100: mix($greenColor, #000000, 80%);
+$greenColor150: mix($greenColor, #000000, 70%);
+$greenColor200: mix($greenColor, #000000, 60%);
+$greenColor250: mix($greenColor, #000000, 50%);
+$greenColor300: mix($greenColor, #000000, 40%);
+$greenColor350: mix($greenColor, #000000, 30%);
+$greenColor400: mix($greenColor, #000000, 20%);
+$greenColor450: mix($greenColor, #000000, 10%);
+$greenColor500: $greenColor;
+$greenColor550: mix($greenColor, #FFFFFF, 10%);
+$greenColor600: mix($greenColor, #FFFFFF, 20%);
+$greenColor650: mix($greenColor, #FFFFFF, 30%);
+$greenColor700: mix($greenColor, #FFFFFF, 40%);
+$greenColor750: mix($greenColor, #FFFFFF, 50%);
+$greenColor800: mix($greenColor, #FFFFFF, 60%);
+$greenColor850: mix($greenColor, #FFFFFF, 70%);
+$greenColor900: mix($greenColor, #FFFFFF, 80%);
+$greenColor950: mix($greenColor, #FFFFFF, 90%);
+
+$magentaColor: #F700F7;
+$magentaColor50: mix($magentaColor, #000000, 90%);
+$magentaColor100: mix($magentaColor, #000000, 80%);
+$magentaColor150: mix($magentaColor, #000000, 70%);
+$magentaColor200: mix($magentaColor, #000000, 60%);
+$magentaColor250: mix($magentaColor, #000000, 50%);
+$magentaColor300: mix($magentaColor, #000000, 40%);
+$magentaColor350: mix($magentaColor, #000000, 30%);
+$magentaColor400: mix($magentaColor, #000000, 20%);
+$magentaColor450: mix($magentaColor, #000000, 10%);
+$magentaColor500: $magentaColor;
+$magentaColor550: mix($magentaColor, #FFFFFF, 10%);
+$magentaColor600: mix($magentaColor, #FFFFFF, 20%);
+$magentaColor650: mix($magentaColor, #FFFFFF, 30%);
+$magentaColor700: mix($magentaColor, #FFFFFF, 40%);
+$magentaColor750: mix($magentaColor, #FFFFFF, 50%);
+$magentaColor800: mix($magentaColor, #FFFFFF, 60%);
+$magentaColor850: mix($magentaColor, #FFFFFF, 70%);
+$magentaColor900: mix($magentaColor, #FFFFFF, 80%);
+$magentaColor950: mix($magentaColor, #FFFFFF, 90%);
+
+$orangeColor: #FF9800;
+$orangeColor50: mix($orangeColor, #000000, 90%);
+$orangeColor100: mix($orangeColor, #000000, 80%);
+$orangeColor150: mix($orangeColor, #000000, 70%);
+$orangeColor200: mix($orangeColor, #000000, 60%);
+$orangeColor250: mix($orangeColor, #000000, 50%);
+$orangeColor300: mix($orangeColor, #000000, 40%);
+$orangeColor350: mix($orangeColor, #000000, 30%);
+$orangeColor400: mix($orangeColor, #000000, 20%);
+$orangeColor450: mix($orangeColor, #000000, 10%);
+$orangeColor500: $orangeColor;
+$orangeColor550: mix($orangeColor, #FFFFFF, 10%);
+$orangeColor600: mix($orangeColor, #FFFFFF, 20%);
+$orangeColor650: mix($orangeColor, #FFFFFF, 30%);
+$orangeColor700: mix($orangeColor, #FFFFFF, 40%);
+$orangeColor750: mix($orangeColor, #FFFFFF, 50%);
+$orangeColor800: mix($orangeColor, #FFFFFF, 60%);
+$orangeColor850: mix($orangeColor, #FFFFFF, 70%);
+$orangeColor900: mix($orangeColor, #FFFFFF, 80%);
+$orangeColor950: mix($orangeColor, #FFFFFF, 90%);
+
+$redColor: #EF4444;
+$redColor50: mix($redColor, #000000, 90%);
+$redColor100: mix($redColor, #000000, 80%);
+$redColor150: mix($redColor, #000000, 70%);
+$redColor200: mix($redColor, #000000, 60%);
+$redColor250: mix($redColor, #000000, 50%);
+$redColor300: mix($redColor, #000000, 40%);
+$redColor350: mix($redColor, #000000, 30%);
+$redColor400: mix($redColor, #000000, 20%);
+$redColor450: mix($redColor, #000000, 10%);
+$redColor500: $redColor;
+$redColor550: mix($redColor, #FFFFFF, 10%);
+$redColor600: mix($redColor, #FFFFFF, 20%);
+$redColor650: mix($redColor, #FFFFFF, 30%);
+$redColor700: mix($redColor, #FFFFFF, 40%);
+$redColor750: mix($redColor, #FFFFFF, 50%);
+$redColor800: mix($redColor, #FFFFFF, 60%);
+$redColor850: mix($redColor, #FFFFFF, 70%);
+$redColor900: mix($redColor, #FFFFFF, 80%);
+$redColor950: mix($redColor, #FFFFFF, 90%);
+
+$tealColor: #14B8A6;
+$tealColor50: mix($tealColor, #000000, 90%);
+$tealColor100: mix($tealColor, #000000, 80%);
+$tealColor150: mix($tealColor, #000000, 70%);
+$tealColor200: mix($tealColor, #000000, 60%);
+$tealColor250: mix($tealColor, #000000, 50%);
+$tealColor300: mix($tealColor, #000000, 40%);
+$tealColor350: mix($tealColor, #000000, 30%);
+$tealColor400: mix($tealColor, #000000, 20%);
+$tealColor450: mix($tealColor, #000000, 10%);
+$tealColor500: $tealColor;
+$tealColor550: mix($tealColor, #FFFFFF, 10%);
+$tealColor600: mix($tealColor, #FFFFFF, 20%);
+$tealColor650: mix($tealColor, #FFFFFF, 30%);
+$tealColor700: mix($tealColor, #FFFFFF, 40%);
+$tealColor750: mix($tealColor, #FFFFFF, 50%);
+$tealColor800: mix($tealColor, #FFFFFF, 60%);
+$tealColor850: mix($tealColor, #FFFFFF, 70%);
+$tealColor900: mix($tealColor, #FFFFFF, 80%);
+$tealColor950: mix($tealColor, #FFFFFF, 90%);
+
+$yellowColor: #FFEB3B;
+$yellowColor50: mix($yellowColor, #000000, 90%);
+$yellowColor100: mix($yellowColor, #000000, 80%);
+$yellowColor150: mix($yellowColor, #000000, 70%);
+$yellowColor200: mix($yellowColor, #000000, 60%);
+$yellowColor250: mix($yellowColor, #000000, 50%);
+$yellowColor300: mix($yellowColor, #000000, 40%);
+$yellowColor350: mix($yellowColor, #000000, 30%);
+$yellowColor400: mix($yellowColor, #000000, 20%);
+$yellowColor450: mix($yellowColor, #000000, 10%);
+$yellowColor500: $yellowColor;
+$yellowColor550: mix($yellowColor, #FFFFFF, 10%);
+$yellowColor600: mix($yellowColor, #FFFFFF, 20%);
+$yellowColor650: mix($yellowColor, #FFFFFF, 30%);
+$yellowColor700: mix($yellowColor, #FFFFFF, 40%);
+$yellowColor750: mix($yellowColor, #FFFFFF, 50%);
+$yellowColor800: mix($yellowColor, #FFFFFF, 60%);
+$yellowColor850: mix($yellowColor, #FFFFFF, 70%);
+$yellowColor900: mix($yellowColor, #FFFFFF, 80%);
+$yellowColor950: mix($yellowColor, #FFFFFF, 90%);
+
+$primary-color: #059669;
+$secondary-color: #86efac;
+$accent-color: #047857;
+$text-color: #111827;
+$background-color: #ffffff;
+$border-radius: 0.5rem;
+$box-shadow: 0 0.125rem 0.625rem rgba( 0, 0, 0, 0.1 );
+
+@mixin button-style( $bg-color, $text-color: white )
+{
+    background-color: $bg-color;
+    color: $text-color;
+    border: none;
+    border-radius: $border-radius;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+@mixin button-style-hover
+{
+    transform: translateY( -0.125rem );
+    box-shadow: $box-shadow;
+}
+
+@mixin button-style-active
+{
+    transform: translateY( 0 );
+}
+
+@mixin flex-center
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin card-style
+{
+    background: white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    padding: 1.5rem;
+    margin: 1rem 0;
+}
+
+body
+{
+    background-color: $background-color;
+    color: $text-color;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+body .container
+{
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+@media ( max-width: 768px )
+{
+    body .container
+    {
+        padding: 0 1rem;
+    }
+}
+
+body header
+{
+    background: white;
+    box-shadow: $box-shadow;
+    padding: 1rem 0;
+}
+
+body header .header-content
+{
+    @include flex-center;
+    justify-content: space-between;
+}
+
+body header .header-content .logo
+{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $primary-color;
+}
+
+body header .header-content nav ul
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    @include flex-center;
+    gap: 1.5rem;
+}
+
+body header .header-content nav ul li a
+{
+    text-decoration: none;
+    color: $text-color;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+body header .header-content nav ul li a:hover
+{
+    color: $primary-color;
+}
+
+body main
+{
+    padding: 2.5rem 0;
+}
+
+body main .hero
+{
+    text-align: center;
+    padding: 3.75rem 0;
+}
+
+body main .hero h1
+{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: $primary-color;
+}
+
+@media ( max-width: 768px )
+{
+    body main .hero h1
+    {
+        font-size: 2rem;
+    }
+}
+
+body main .hero p
+{
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: lighten( $text-color, 20% );
+}
+
+body main .hero .cta-buttons
+{
+    @include flex-center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+body main .hero .cta-buttons .btn-primary
+{
+    @include button-style( $primary-color );
+}
+
+body main .hero .cta-buttons .btn-primary:hover
+{
+    @include button-style-hover;
+}
+
+body main .hero .cta-buttons .btn-primary:active
+{
+    @include button-style-active;
+}
+
+body main .hero .cta-buttons .btn-secondary
+{
+    @include button-style( $secondary-color );
+}
+
+body main .hero .cta-buttons .btn-secondary:hover
+{
+    @include button-style-hover;
+}
+
+body main .hero .cta-buttons .btn-secondary:active
+{
+    @include button-style-active;
+}
+
+body main .hero .cta-buttons .btn-accent
+{
+    @include button-style( $accent-color );
+}
+
+body main .hero .cta-buttons .btn-accent:hover
+{
+    @include button-style-hover;
+}
+
+body main .hero .cta-buttons .btn-accent:active
+{
+    @include button-style-active;
+}
+
+body main .features
+{
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax( 18.75rem, 1fr ) );
+    gap: 2rem;
+    margin: 3.75rem 0;
+}
+
+body main .features .feature-card
+{
+    @include card-style;
+    text-align: center;
+}
+
+body main .features .feature-card .feature-icon
+{
+    width: 4rem;
+    height: 4rem;
+    background: linear-gradient( 135deg, $primary-color, $secondary-color );
+    border-radius: 50%;
+    @include flex-center;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+    color: white;
+}
+
+body main .features .feature-card h3
+{
+    color: $primary-color;
+    margin-bottom: 0.75rem;
+}
+
+body main .features .feature-card p
+{
+    color: lighten( $text-color, 15% );
+    line-height: 1.6;
+}
+
+body footer
+{
+    background: darken( $background-color, 5% );
+    padding: 2.5rem 0;
+    text-align: center;
+    margin-top: 3.75rem;
+}
+
+body footer p
+{
+    color: lighten( $text-color, 30% );
+    margin: 0;
+}
+
+.text-center
+{
+    text-align: center;
+}
+
+.mt-4
+{
+    margin-top: 1rem;
+}
+
+.mb-4
+{
+    margin-bottom: 1rem;
+}
+
+.p-4
+{
+    padding: 1rem;
+}
+
+@media ( max-width: 768px )
+{
+    .hide-mobile
+    {
+        display: none;
+    }
+}
+
+@media ( min-width: 769px )
+{
+    .hide-desktop
+    {
+        display: none;
+    }
+}
+
+$button-padding: 0.75rem 1.5rem;
+$button-border-radius: 0.375rem;
+$button-transition: all 0.2s ease;
+
+.button
+{
+    display: inline-block;
+    padding: $button-padding;
+    border: none;
+    border-radius: $button-border-radius;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: $button-transition;
+    text-align: center;
+}
+
+.button.primary
+{
+    background-color: #3498db;
+    color: white;
+}
+
+.button.primary:hover
+{
+    background-color: darken( #3498db, 10% );
+    transform: translateY( -0.0625rem );
+}
+
+.button.secondary
+{
+    background-color: #95a5a6;
+    color: white;
+}
+
+.button.secondary:hover
+{
+    background-color: darken( #95a5a6, 10% );
+    transform: translateY( -0.0625rem );
+}
+
+.button.outline
+{
+    background-color: transparent;
+    color: #3498db;
+    border: 2px solid #3498db;
+}
+
+.button.outline:hover
+{
+    background-color: #3498db;
+    color: white;
+}
+
+.button.small
+{
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.button.large
+{
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+}
+
+.button:disabled
+{
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.button:disabled:hover
+{
+    transform: none;
+}
+
+.card
+{
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.5rem rgba( 0, 0, 0, 0.1 );
+    padding: 1.5rem;
+    margin: 1rem 0;
+}
+
+.card .card-header
+{
+    margin-bottom: 1rem;
+}
+
+.card .card-header .card-title
+{
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.card .card-header .card-subtitle
+{
+    font-size: 0.875rem;
+    color: #7f8c8d;
+    margin: 0.25rem 0 0 0;
+}
+
+.card .card-body
+{
+    color: #34495e;
+    line-height: 1.6;
+}
+
+.card .card-footer
+{
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ecf0f1;
+}
+
+.form-group
+{
+    margin-bottom: 1.25rem;
+}
+
+.form-group .form-label
+{
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.form-group .form-input
+{
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #ecf0f1;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.form-group .form-input:focus
+{
+    outline: none;
+    border-color: #3498db;
+}
+
+.form-group .form-input.error
+{
+    border-color: #e74c3c;
+}
+
+.form-group .form-error
+{
+    color: #e74c3c;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}

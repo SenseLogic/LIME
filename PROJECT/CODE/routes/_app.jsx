@@ -1,9 +1,13 @@
 import HeaderMenu from "../components/HeaderMenu.jsx";
+import { getRequestLanguageCode } from "../application.js";
 
-export default function App( { Component } )
+export default function App( { Component, url } )
 {
+    // Get language from the current request
+    const languageCode = getRequestLanguageCode({ url });
+    
     return (
-        <html>
+        <html lang={ languageCode }>
             <head>
                 <meta charset="utf-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +15,7 @@ export default function App( { Component } )
                 <link rel="stylesheet" href="/styles/main.css" />
             </head>
             <body>
-                <HeaderMenu />
+                <HeaderMenu currentLanguage={ languageCode } />
                 <Component />
             </body>
         </html>

@@ -8,7 +8,7 @@
 
 .contact-page-hero-container
 {
-    max-width: 800px;
+    max-width: 50rem;
     margin: 0 auto;
     padding: 0 1rem;
 }
@@ -42,7 +42,7 @@
 
 .contact-page-content-container
 {
-    max-width: 1200px;
+    max-width: 75rem;
     margin: 0 auto;
     padding: 0 1rem;
     display: grid;
@@ -105,7 +105,7 @@
 {
     outline: none;
     border-color: #059669;
-    box-shadow: 0 0 0 3px rgba( 5, 150, 105, 0.1 );
+    box-shadow: 0 0 0 0.1875rem rgba( 5, 150, 105, 0.1 );
 }
 
 .contact-page-form-input::placeholder,
@@ -117,7 +117,7 @@
 .contact-page-form-textarea
 {
     resize: vertical;
-    min-height: 120px;
+    min-height: 7.5rem;
 }
 
 .contact-page-form-button
@@ -140,7 +140,7 @@
 
 .contact-page-form-button:active:not( :disabled )
 {
-    transform: translateY( 1px );
+    transform: translateY( 0.0625rem );
 }
 
 .contact-page-form-button:disabled

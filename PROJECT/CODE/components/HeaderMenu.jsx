@@ -1,8 +1,10 @@
-import { getLocalizedTextBySlug, getApplicationData } from '../application.js';
+import { getLocalizedTextBySlug, getApplicationData, getLanguageCodePath, getPathWithoutLanguage } from '../application.js';
 
-export default function HeaderMenu()
+export default function HeaderMenu( { languageCode } )
 {
     let applicationData = getApplicationData();
+    let path = typeof window !== 'undefined' ? window.location.pathname : '/';
+    let pathWithoutLanguage = getPathWithoutLanguage( path );
 
     return (
         <header className="header-menu">
@@ -20,7 +22,7 @@ export default function HeaderMenu()
                                 (
                                     <li key={ buttonIndex } className="header-menu-item">
                                         <a
-                                            href={ `/${ menuButtonItem.route }` }
+                                            href={ `/${ languageCode }/${ menuButtonItem.route }` }
                                             className="header-menu-button"
                                         >
                                             <span className="header-menu-button-text">
@@ -34,7 +36,11 @@ export default function HeaderMenu()
                     </ul>
                 </nav>
                 <div className="header-menu-language">
-                    <select className="header-menu-language-select">
+                    <select 
+                        className="header-menu-language-select"
+                        value={ languageCode }
+                        onChange={ ( event ) => window.location.href = getLanguageCodePath( path, event.target.value ) }
+                    >
                         {
                             Object.entries( applicationData.languageByCodeMap ).map(
                                 ( [ languageCode, languageItem ] ) =>
