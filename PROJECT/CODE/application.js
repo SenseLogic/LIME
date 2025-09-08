@@ -83,7 +83,20 @@ export function isValidLanguageCode( languageCode )
 
 export function getRequestBrowserLanguageCode( request )
 {
-    let acceptLanguage = request.headers?.get( 'Accept-Language' );
+    let acceptLanguage;
+
+    if ( request && request.headers ) 
+    {
+        acceptLanguage = request.headers.get( 'Accept-Language' );
+    } 
+    else if ( request && request.headers ) 
+    {
+        acceptLanguage = request.headers.get( 'Accept-Language' );
+    } 
+    else 
+    {
+        return getDefaultLanguageCode();
+    }
     
     if ( acceptLanguage )
     {
@@ -126,8 +139,27 @@ export function getPathWithoutLanguage( path )
 
 export function getRequestLanguageCode( request )
 {
-    let pathname = new URL( request.url ).pathname;
-    let languageCode = getPathLanguageCode( pathname );
+    let url;
+
+    if ( request && request.url ) 
+    {
+        url = request.url;
+    } 
+    else if ( request && typeof request === 'string' ) 
+    {
+        url = request;
+    } 
+    else if ( request && request instanceof Request ) 
+    {
+        url = request.url;
+    } 
+    else 
+    {
+        return getDefaultLanguageCode();
+    }
+    
+    let path = new URL( url ).pathname;
+    let languageCode = getPathLanguageCode( path );
     
     if ( !languageCode )
     {

@@ -1,9 +1,9 @@
 import { setRequestLanguageCode } from "../../application.js";
 import BlogPage from "../../components/BlogPage.jsx";
 
-export default function Blog( { params, request } )
+export default function Blog( props )
 {
-    setRequestLanguageCode( request, params.languageCode );
+    setRequestLanguageCode( props, props.params.languageCode );
     
     return (
         <div>

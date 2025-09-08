@@ -1,9 +1,9 @@
 import { setRequestLanguageCode } from "../../application.js";
 import AboutPage from "../../components/AboutPage.jsx";
 
-export default function About( { params, request } )
+export default function About( props )
 {
-    setRequestLanguageCode( request, params.languageCode );
+    setRequestLanguageCode( props, props.params.languageCode );
     
     return (
         <div>

@@ -1,9 +1,9 @@
 import { setRequestLanguageCode } from "../application.js";
 import ProductsPage from "../components/ProductsPage.jsx";
 
-export default function Products( { request } )
+export default function Products( props )
 {
-    setRequestLanguageCode( request );
+    setRequestLanguageCode( props );
 
     return <ProductsPage />;
 }

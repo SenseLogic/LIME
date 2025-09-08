@@ -1,9 +1,9 @@
 import { setRequestLanguageCode } from "../../application.js";
 import ContactPage from "../../components/ContactPage.jsx";
 
-export default function Contact( { params, request } )
+export default function Contact( props )
 {
-    setRequestLanguageCode( request, params.languageCode );
+    setRequestLanguageCode( props, props.params.languageCode );
     
     return (
         <div>

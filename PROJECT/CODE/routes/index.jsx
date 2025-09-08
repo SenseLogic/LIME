@@ -1,9 +1,9 @@
 import { setRequestLanguageCode } from "../application.js";
 import HomePage from "../components/HomePage.jsx";
 
-export default function Home( { request } )
+export default function Home( props )
 {
-    setRequestLanguageCode( request );
+    setRequestLanguageCode( props );
     
     return (
         <div>

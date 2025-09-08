@@ -1,9 +1,9 @@
 import { setRequestLanguageCode } from "../../application.js";
 import TestimonialsPage from "../../components/TestimonialsPage.jsx";
 
-export default function Testimonials( { params, request } )
+export default function Testimonials( props )
 {
-    setRequestLanguageCode( request, params.languageCode );
+    setRequestLanguageCode( props, props.params.languageCode );
     
     return (
         <div>
