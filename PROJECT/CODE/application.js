@@ -7,12 +7,20 @@ import {
     getDefaultLanguageCode,
     getBrowserLanguageCode
 } from "senselogic-lingo";
-import { parseDefText } from "senselogic-def";
+import { readDefFile } from "senselogic-def-file";
 
 let applicationData = null;
 
 setLanguageSeparator( "\n¨" );
 setDefaultLanguageCode( "en" );
+
+export function readDataFile( filePath )
+{
+    let textDecoder = new TextDecoder( "utf-8" );
+    let applicationDataFile = Deno.readFileSync( filePath );
+
+    return textDecoder.decode( applicationDataFile );
+}
 
 export function getApplicationData()
 {
@@ -20,14 +28,12 @@ export function getApplicationData()
     {
         try
         {
-            let textDecoder = new TextDecoder( "utf-8" );
-            let applicationDataFile = Deno.readFileSync( "./application_data.def" );
-            let applicationDataText = textDecoder.decode( applicationDataFile );
-            applicationData = parseDefText( applicationDataText );
+            applicationData = readDefFile( "./application_data.def", { readTextFileFunction: readDataFile } );
+
         }
         catch ( error )
         {
-            console.error( "Error loading application data:", error );
+            console.error( error );
             throw error;
         }
     }

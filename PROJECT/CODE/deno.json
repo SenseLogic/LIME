@@ -12,29 +12,19 @@
     "build-scss:watch": "deno run --allow-read --allow-write --allow-env build-scss.ts --watch",
     "dev": "deno task build-scss && deno task start"
   },
-  "lint": {
-    "rules": {
-      "tags": [
-        "fresh",
-        "recommended"
-      ]
-    }
-  },
-  "fmt": {
-    "include": ["**/*.{js,jsx,ts,tsx,scss}"]
-  },
-  "exclude": [
-    "**/_fresh/*"
-  ],
+  "lint": { "rules": { "tags": ["fresh", "recommended"] } },
+  "fmt": { "include": ["**/*.{js,jsx,ts,tsx,scss}"] },
+  "exclude": ["**/_fresh/*"],
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.7.3/",
+    "$std/": "https://deno.land/std@0.216.0/",
     "preact": "https://esm.sh/preact@10.22.0",
     "preact/": "https://esm.sh/preact@10.22.0/",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
-    "$std/": "https://deno.land/std@0.216.0/",
-    "senselogic-def": "npm:senselogic-def",
-    "senselogic-lingo": "npm:senselogic-lingo"
+    "senselogic-def": "npm:senselogic-def@0.1.21",
+    "senselogic-def-file": "npm:senselogic-def-file@0.1.19",
+    "senselogic-lingo": "npm:senselogic-lingo@0.1.7"
   },
   "compilerOptions": {
     "jsx": "react-jsxdev",
