@@ -1,9 +1,9 @@
-import { getLocalizedTextBySlug, getApplicationData, getLanguageCodePath, getPathWithoutLanguage } from '../application.js';
+import { getLocalizedTextBySlug, getApplicationData, getLanguageCodePath, getPathWithoutLanguage } from "../application.js";
 
 export default function HeaderMenu( { languageCode } )
 {
     let applicationData = getApplicationData();
-    let path = typeof window !== 'undefined' ? window.location.pathname : '/';
+    let path = typeof window !== "undefined" ? window.location.pathname : "/";
     let pathWithoutLanguage = getPathWithoutLanguage( path );
 
     return (
@@ -11,7 +11,7 @@ export default function HeaderMenu( { languageCode } )
             <div className="header-menu-container">
                 <div className="header-menu-logo">
                     <h1 className="header-menu-logo-text">
-                        { getLocalizedTextBySlug( 'home-page-text' ) }
+                        { getLocalizedTextBySlug( "home-page-text" ) }
                     </h1>
                 </div>
                 <nav className="header-menu-nav">

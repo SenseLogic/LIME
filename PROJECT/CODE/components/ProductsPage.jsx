@@ -1,4 +1,4 @@
-import { getLocalizedTextBySlug, getApplicationData } from '../application.js';
+import { getLocalizedTextBySlug, getApplicationData } from "../application.js";
 
 export default function ProductsPage()
 {
@@ -9,10 +9,10 @@ export default function ProductsPage()
             <section className="products-page-hero">
                 <div className="products-page-hero-container">
                     <h1 className="products-page-hero-title">
-                        { getLocalizedTextBySlug( 'products-page-title' ) }
+                        { getLocalizedTextBySlug( "products-page-title" ) }
                     </h1>
                     <p className="products-page-hero-subtitle">
-                        { getLocalizedTextBySlug( 'products-page-text' ) }
+                        { getLocalizedTextBySlug( "products-page-text" ) }
                     </p>
                 </div>
             </section>
@@ -21,10 +21,10 @@ export default function ProductsPage()
                 <div className="products-page-filters-container">
                     <div className="products-page-filter">
                         <label className="products-page-filter-label">
-                            { getLocalizedTextBySlug( 'products-page-gender-button' ) }
+                            { getLocalizedTextBySlug( "products-page-gender-button" ) }
                         </label>
                         <select className="products-page-filter-select">
-                            <option value=''>All Genders</option>
+                            <option value="">All Genders</option>
                             {
                                 Object.entries( applicationData.genderBySlugMap ).map(
                                     ( [ genderSlug, genderName ] ) =>
@@ -38,10 +38,10 @@ export default function ProductsPage()
 
                     <div className="products-page-filter">
                         <label className="products-page-filter-label">
-                            { getLocalizedTextBySlug( 'products-page-category-button' ) }
+                            { getLocalizedTextBySlug( "products-page-category-button" ) }
                         </label>
                         <select className="products-page-filter-select">
-                            <option value=''>All Categories</option>
+                            <option value="">All Categories</option>
                             {
                                 Object.entries( applicationData.categoryBySlugMap ).map(
                                     ( [ categorySlug, categoryName ] ) =>
@@ -55,10 +55,10 @@ export default function ProductsPage()
 
                     <div className="products-page-filter">
                         <label className="products-page-filter-label">
-                            { getLocalizedTextBySlug( 'products-page-brand-button' ) }
+                            { getLocalizedTextBySlug( "products-page-brand-button" ) }
                         </label>
                         <select className="products-page-filter-select">
-                            <option value=''>All Brands</option>
+                            <option value="">All Brands</option>
                             {
                                 Object.entries( applicationData.brandBySlugMap ).map(
                                     ( [ brandSlug, brandName ] ) =>
@@ -81,7 +81,7 @@ export default function ProductsPage()
                                     <div key={ productIndex } className="products-page-product">
                                         <div className="products-page-product-image">
                                             <img
-                                                src={ productItem.imagePath || '/logo.svg' }
+                                                src={ productItem.imagePath || "/logo.svg" }
                                                 alt={ productItem.model }
                                                 className="products-page-product-img"
                                             />

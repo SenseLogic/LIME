@@ -3,9 +3,8 @@ import { getRequestLanguageCode } from "../application.js";
 
 export default function App( { Component, url } )
 {
-    // Get language from the current request
-    const languageCode = getRequestLanguageCode({ url });
-    
+    let languageCode = getRequestLanguageCode( { url } );
+
     return (
         <html lang={ languageCode }>
             <head>
@@ -15,7 +14,7 @@ export default function App( { Component, url } )
                 <link rel="stylesheet" href="/styles/main.css" />
             </head>
             <body>
-                <HeaderMenu currentLanguage={ languageCode } />
+                <HeaderMenu languageCode={ languageCode } />
                 <Component />
             </body>
         </html>

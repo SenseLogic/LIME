@@ -1,4 +1,4 @@
-import { getLocalizedTextBySlug, getApplicationData } from '../application.js';
+import { getLocalizedTextBySlug, getApplicationData } from "../application.js";
 
 export default function TestimonialsPage()
 {
@@ -9,10 +9,10 @@ export default function TestimonialsPage()
             <section className="testimonials-page-hero">
                 <div className="testimonials-page-hero-container">
                     <h1 className="testimonials-page-hero-title">
-                        { getLocalizedTextBySlug( 'testimonials-page-title' ) }
+                        { getLocalizedTextBySlug( "testimonials-page-title" ) }
                     </h1>
                     <p className="testimonials-page-hero-subtitle">
-                        { getLocalizedTextBySlug( 'testimonials-page-text' ) }
+                        { getLocalizedTextBySlug( "testimonials-page-text" ) }
                     </p>
                 </div>
             </section>
@@ -27,7 +27,7 @@ export default function TestimonialsPage()
                                     <div className="testimonials-page-testimonial-header">
                                         <div className="testimonials-page-testimonial-image">
                                             <img
-                                                src={ testimonialItem.imagePath || '/logo.svg' }
+                                                src={ testimonialItem.imagePath || "/logo.svg" }
                                                 alt={ testimonialItem.name }
                                                 className="testimonials-page-testimonial-img"
                                             />
@@ -51,7 +51,7 @@ export default function TestimonialsPage()
                                                     <span
                                                         key={ starIndex }
                                                         className={ `testimonials-page-testimonial-star ${
-                                                            starIndex < testimonialItem.rating ? 'testimonials-page-testimonial-star-filled' : ''
+                                                            starIndex < testimonialItem.rating ? "testimonials-page-testimonial-star-filled" : ""
                                                         }` }
                                                     >
                                                         ⭐

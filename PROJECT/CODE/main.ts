@@ -4,14 +4,15 @@
 /// <reference lib="dom.asynciterable" />
 /// <reference lib="deno.ns" />
 
-import '$std/dotenv/load.ts';
+import "$std/dotenv/load.ts";
 
-import { start } from '$fresh/server.ts';
-import manifest from './fresh.gen.ts';
-import config from './fresh.config.js';
-import { getApplicationData } from './application.js';
+import { start } from "$fresh/server.ts";
+import manifest from "./fresh.gen.ts";
+import config from "./fresh.config.js";
+import { getApplicationData } from "./application.js";
 
-const applicationData = getApplicationData();
+let applicationData = getApplicationData();
+
 if ( !applicationData )
 {
     throw new Error( "Application data not loaded before server start" );

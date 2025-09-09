@@ -5,9 +5,5 @@ export default function Blog( props )
 {
     setRequestLanguageCode( props, props.params.languageCode );
     
-    return (
-        <div>
-            <BlogPage />
-        </div>
-        );
+    return <BlogPage />;
 }

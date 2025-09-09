@@ -5,9 +5,5 @@ export default function Contact( props )
 {
     setRequestLanguageCode( props, props.params.languageCode );
     
-    return (
-        <div>
-            <ContactPage />
-        </div>
-        );
+    return <ContactPage />;
 }

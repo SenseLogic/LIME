@@ -1,20 +1,20 @@
-import { getLocalizedTextBySlug, getApplicationData } from '../application.js';
+import { getLocalizedTextBySlug, getApplicationData } from "../application.js";
 
 export default function BlogPage()
 {
     let applicationData = getApplicationData();
-    let blogPostsArray = applicationData.blogPostArray;
-    let blogCategoriesArray = applicationData.blogCategoryArray;
+    let blogPostArray = applicationData.blogPostArray;
+    let blogCategoryArray = applicationData.blogCategoryArray;
 
     return (
         <div className="blog-page">
             <section className="blog-page-hero">
                 <div className="blog-page-hero-container">
                     <h1 className="blog-page-hero-title">
-                        { getLocalizedTextBySlug( 'blog-page-title' ) }
+                        { getLocalizedTextBySlug( "blog-page-title" ) }
                     </h1>
                     <p className="blog-page-hero-subtitle">
-                        { getLocalizedTextBySlug( 'blog-page-text' ) }
+                        { getLocalizedTextBySlug( "blog-page-text" ) }
                     </p>
                 </div>
             </section>
@@ -23,7 +23,7 @@ export default function BlogPage()
                 <div className="blog-page-content-container">
                     <div className="blog-page-posts">
                         {
-                            blogPostsArray.map(
+                            blogPostArray.map(
                                 ( blogPostItem ) =>
                                 (
                                     <article key={ blogPostItem.id } className="blog-page-post">
@@ -59,7 +59,7 @@ export default function BlogPage()
                             <h3 className="blog-page-sidebar-title">Categories</h3>
                             <ul className="blog-page-sidebar-list">
                                 {
-                                    blogCategoriesArray.map(
+                                    blogCategoryArray.map(
                                         ( categoryItem ) =>
                                         (
                                             <li key={ categoryItem.slug } className="blog-page-sidebar-item">
@@ -77,7 +77,7 @@ export default function BlogPage()
                             <h3 className="blog-page-sidebar-title">Recent Posts</h3>
                             <ul className="blog-page-sidebar-list">
                                 {
-                                    blogPostsArray.slice( 0, 3 ).map(
+                                    blogPostArray.slice( 0, 3 ).map(
                                         ( recentPostItem ) =>
                                         (
                                             <li key={ recentPostItem.id } className="blog-page-sidebar-item">

@@ -32,13 +32,13 @@ export let handler = {
             let currentDateTime = new Date();
             let timestampString =
                 currentDateTime.getFullYear().toString() +
-                ( currentDateTime.getMonth() + 1 ).toString().padStart( 2, '0' ) +
-                currentDateTime.getDate().toString().padStart( 2, '0' ) +
-                currentDateTime.getHours().toString().padStart( 2, '0' ) +
-                currentDateTime.getMinutes().toString().padStart( 2, '0' ) +
-                currentDateTime.getSeconds().toString().padStart( 2, '0' ) +
-                currentDateTime.getMilliseconds().toString().padStart( 3, '0' ) +
-                Math.floor( Math.random() * 1000 ).toString().padStart( 3, '0' );
+                ( currentDateTime.getMonth() + 1 ).toString().padStart( 2, "0" ) +
+                currentDateTime.getDate().toString().padStart( 2, "0" ) +
+                currentDateTime.getHours().toString().padStart( 2, "0" ) +
+                currentDateTime.getMinutes().toString().padStart( 2, "0" ) +
+                currentDateTime.getSeconds().toString().padStart( 2, "0" ) +
+                currentDateTime.getMilliseconds().toString().padStart( 3, "0" ) +
+                Math.floor( Math.random() * 1000 ).toString().padStart( 3, "0" );
 
             let contactFileName = `${ timestampString }.json`;
             let contactFilePath = `./data/contact/${ contactFileName }`;

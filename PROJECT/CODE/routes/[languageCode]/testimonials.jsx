@@ -5,9 +5,5 @@ export default function Testimonials( props )
 {
     setRequestLanguageCode( props, props.params.languageCode );
     
-    return (
-        <div>
-            <TestimonialsPage />
-        </div>
-        );
+    return <TestimonialsPage />;
 }

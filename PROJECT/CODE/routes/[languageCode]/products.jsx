@@ -5,9 +5,5 @@ export default function Products( props )
 {
     setRequestLanguageCode( props, props.params.languageCode );
     
-    return (
-        <div>
-            <ProductsPage />
-        </div>
-        );
+    return <ProductsPage />;
 }

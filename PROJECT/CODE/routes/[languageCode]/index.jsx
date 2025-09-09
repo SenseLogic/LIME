@@ -5,9 +5,5 @@ export default function Home( props )
 {
     setRequestLanguageCode( props, props.params.languageCode );
     
-    return (
-        <div>
-            <HomePage />
-        </div>
-        );
+    return <HomePage />;
 }

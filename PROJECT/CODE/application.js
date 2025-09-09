@@ -6,13 +6,13 @@ import {
     setDefaultLanguageCode,
     getDefaultLanguageCode,
     getBrowserLanguageCode
-} from 'senselogic-lingo';
-import { parseDefText } from 'senselogic-def';
+} from "senselogic-lingo";
+import { parseDefText } from "senselogic-def";
 
 let applicationData = null;
 
-setLanguageSeparator( '\n¨' );
-setDefaultLanguageCode( 'en' );
+setLanguageSeparator( "\n¨" );
+setDefaultLanguageCode( "en" );
 
 export function getApplicationData()
 {
@@ -20,14 +20,14 @@ export function getApplicationData()
     {
         try
         {
-            let textDecoder = new TextDecoder( 'utf-8' );
-            let applicationDataFile = Deno.readFileSync( './application_data.def' );
+            let textDecoder = new TextDecoder( "utf-8" );
+            let applicationDataFile = Deno.readFileSync( "./application_data.def" );
             let applicationDataText = textDecoder.decode( applicationDataFile );
             applicationData = parseDefText( applicationDataText );
         }
         catch ( error )
         {
-            console.error( 'Error loading application data:', error );
+            console.error( "Error loading application data:", error );
             throw error;
         }
     }
@@ -40,7 +40,7 @@ export function getLocalizedTextBySlug( slug )
     let applicationData = getApplicationData();
     let textData = applicationData.textBySlugMap[ slug ];
 
-    if ( typeof textData === 'string' )
+    if ( typeof textData === "string" )
     {
         return getLocalizedText( textData );
     }
@@ -69,7 +69,7 @@ export function getAvailableLanguages()
 export function getLanguageCodeArray()
 {
     let applicationData = getApplicationData();
-    
+
     return Object.keys( applicationData.languageByCodeMap );
 }
 
@@ -85,19 +85,19 @@ export function getRequestBrowserLanguageCode( request )
 {
     let acceptLanguage;
 
-    if ( request && request.headers ) 
+    if ( request && request.headers )
     {
-        acceptLanguage = request.headers.get( 'Accept-Language' );
-    } 
-    else if ( request && request.headers ) 
+        acceptLanguage = request.headers.get( "Accept-Language" );
+    }
+    else if ( request && request.headers )
     {
-        acceptLanguage = request.headers.get( 'Accept-Language' );
-    } 
-    else 
+        acceptLanguage = request.headers.get( "Accept-Language" );
+    }
+    else
     {
         return getDefaultLanguageCode();
     }
-    
+
     if ( acceptLanguage )
     {
         return getBrowserLanguageCode( acceptLanguage, getLanguageCodeArray(), getDefaultLanguageCode() );
@@ -108,12 +108,12 @@ export function getRequestBrowserLanguageCode( request )
 
 export function getPathLanguageCode( pathname )
 {
-    let pathPartArray = pathname.replace( /^\//, '' ).split( '/' );
-    
-    if ( pathPartArray.length > 0 && pathPartArray[ 0 ] !== '' )
+    let pathPartArray = pathname.replace( /^\//, "" ).split( "/" );
+
+    if ( pathPartArray.length > 0 && pathPartArray[ 0 ] !== "" )
     {
         let languageCode = pathPartArray[ 0 ];
-        
+
         if ( isValidLanguageCode( languageCode ) )
         {
             return languageCode;
@@ -126,10 +126,10 @@ export function getPathLanguageCode( pathname )
 export function getPathWithoutLanguage( path )
 {
     let languageCode = getPathLanguageCode( path );
-    
+
     if ( languageCode )
     {
-        return '/' + path.replace( /^\//, '' ).split( '/' ).slice( 1 ).join( '/' );
+        return "/" + path.replace( /^\//, "" ).split( "/" ).slice( 1 ).join( "/" );
     }
     else
     {
@@ -141,26 +141,26 @@ export function getRequestLanguageCode( request )
 {
     let url;
 
-    if ( request && request.url ) 
+    if ( request && request.url )
     {
         url = request.url;
-    } 
-    else if ( request && typeof request === 'string' ) 
+    }
+    else if ( request && typeof request === "string" )
     {
         url = request;
-    } 
-    else if ( request && request instanceof Request ) 
+    }
+    else if ( request && request instanceof Request )
     {
         url = request.url;
-    } 
-    else 
+    }
+    else
     {
         return getDefaultLanguageCode();
     }
-    
+
     let path = new URL( url ).pathname;
     let languageCode = getPathLanguageCode( path );
-    
+
     if ( !languageCode )
     {
         languageCode = getRequestBrowserLanguageCode( request );
@@ -183,13 +183,13 @@ export function getLanguageCodePath( path, languageCode )
     else
     {
         let pathWithoutLanguage = getPathWithoutLanguage( path );
-        
-        if ( !pathWithoutLanguage.startsWith( '/' ) )
+
+        if ( !pathWithoutLanguage.startsWith( "/" ) )
         {
-            pathWithoutLanguage = '/' + pathWithoutLanguage;
+            pathWithoutLanguage = "/" + pathWithoutLanguage;
         }
 
-        if ( pathWithoutLanguage === '/' )
+        if ( pathWithoutLanguage === "/" )
         {
             return `/${ languageCode }`;
         }
@@ -199,4 +199,3 @@ export function getLanguageCodePath( path, languageCode )
         }
     }
 }
-

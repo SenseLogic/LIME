@@ -9,11 +9,11 @@ import {
 
 export async function handler( req: Request, ctx: FreshContext )
 {
-    const url = new URL( req.url );
-    const pathname = url.pathname;
+    let url = new URL( req.url );
+    let pathname = url.pathname;
 
-    const languageCode = setRequestLanguageCode( req );
-    const pathLanguageCode = getPathLanguageCode( pathname );
+    let languageCode = setRequestLanguageCode( req );
+    let pathLanguageCode = getPathLanguageCode( pathname );
 
     if ( pathLanguageCode )
     {
@@ -21,8 +21,8 @@ export async function handler( req: Request, ctx: FreshContext )
     }
     else
     {
-        const pathWithoutLanguage = getPathWithoutLanguage( pathname );
-        const redirectUrl = `/${languageCode}${pathWithoutLanguage === '/' ? '' : pathWithoutLanguage}`;
+        let pathWithoutLanguage = getPathWithoutLanguage( pathname );
+        let redirectUrl = `/${languageCode}${pathWithoutLanguage === "/" ? "" : pathWithoutLanguage}`;
 
         return new Response( 
             null,

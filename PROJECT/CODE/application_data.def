@@ -343,7 +343,7 @@
                     Reviews
             }
         ]
-    aboutPageContent
+    aboutPage
         {
             storyTitle
                 Our Story
@@ -366,7 +366,7 @@
             value3Description
                 We stay ahead of trends and continuously improve our selection to bring you the latest in footwear technology and design.
         }
-    contactPageInfo
+    contactPage
         {
             email
                 info@limeshoes.com
@@ -385,7 +385,7 @@
             businessHours3
                 Sunday: Closed
         }
-    homePageContent
+    homePage
         {
             heroSubtitle
                 Discover the perfect pair of shoes for every occasion
