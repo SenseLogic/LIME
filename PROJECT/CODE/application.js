@@ -1,11 +1,15 @@
-import {
-    setLanguageSeparator,
-    getLocalizedText,
-    setLanguageCode,
-    getLanguageCode,
-    setDefaultLanguageCode,
+import
+{
+    defineDualTag,
+    defineLineTag,
+    defineTag,
+    getBrowserLanguageCode,
     getDefaultLanguageCode,
-    getBrowserLanguageCode
+    getLanguageCode,
+    getLocalizedText,
+    setDefaultLanguageCode,
+    setLanguageCode,
+    setLanguageSeparator
 } from "senselogic-lingo";
 import { readDefFile } from "senselogic-def-file";
 
@@ -13,6 +17,37 @@ let applicationData = null;
 
 setLanguageSeparator( "\n¨" );
 setDefaultLanguageCode( "en" );
+
+defineLineTag( '! ', '<div class="paragraph title-1">', '</div>' );
+defineLineTag( '!! ', '<div class="paragraph title-2">', '</div>' );
+defineLineTag( '!!! ', '<div class="paragraph title-3">', '</div>' );
+defineLineTag( '!!!! ', '<div class="paragraph title-4">', '</div>' );
+defineLineTag( '- ', '<div class="paragraph dash-bullet-1">', '</div>' );
+defineLineTag( '  - ', '<div class="paragraph dash-bullet-2">', '</div>' );
+defineLineTag( '    - ', '<div class="paragraph dash-bullet-3">', '</div>' );
+defineLineTag( '      - ', '<div class="paragraph dash-bullet-4">', '</div>' );
+defineLineTag( '* ', '<div class="paragraph round-bullet-1">', '</div>' );
+defineLineTag( '  * ', '<div class="paragraph round-bullet-2">', '</div>' );
+defineLineTag( '    * ', '<div class="paragraph round-bullet-3">', '</div>' );
+defineLineTag( '      * ', '<div class="paragraph round-bullet-4">', '</div>' );
+defineLineTag( '° ', '<div class="paragraph hollow-bullet-1">', '</div>' );
+defineLineTag( '  ° ', '<div class="paragraph hollow-bullet-2">', '</div>' );
+defineLineTag( '    ° ', '<div class="paragraph hollow-bullet-3">', '</div>' );
+defineLineTag( '      ° ', '<div class="paragraph hollow-bullet-4">', '</div>' );
+defineLineTag( '', '<div class="paragraph">', '</div>' );
+
+defineDualTag( '**', '<b>', '</b>' );
+defineDualTag( '%%', '<i>', '</i>' );
+defineDualTag( '__', '<u>', '</u>' );
+defineDualTag( ',,', '<sub>', '</sub>' );
+defineDualTag( '^^', '<sup>', '</sup>' );
+
+defineTag( '~', '&nbsp;' );
+defineTag( '¦', '<wbr/>' );
+defineTag( '§', '<br/>' );
+defineTag( '¶', '<br class="linebreak"/>' );
+defineTag( '®', '<sup>®</sup>' );
+defineTag( '™', '<sup>™</sup>' );
 
 export function readDataFile( filePath )
 {
@@ -44,9 +79,9 @@ export function getApplicationData()
 export function getLocalizedTextBySlug( slug )
 {
     let applicationData = getApplicationData();
-    let textData = applicationData.textBySlugMap[ slug ];
+    let text = applicationData.textBySlugMap[ slug ];
 
-    if ( typeof textData === "string" )
+    if ( typeof text === "string" )
     {
         return getLocalizedText( textData );
     }
@@ -56,19 +91,21 @@ export function getLocalizedTextBySlug( slug )
     }
 }
 
-export function getAvailableLanguages()
+export function getLanguageArray()
 {
     let applicationData = getApplicationData();
 
-    return Object.entries( applicationData.languageByCodeMap ).map(
-        ( [ languageCode, languageData ] ) =>
-        (
-            {
-                code: languageCode,
-                name: languageData.name,
-                iconPath: languageData.iconPath
-            }
-        )
+    return (
+        Object.entries( applicationData.languageByCodeMap ).map(
+            ( [ languageCode, languageData ] ) =>
+            (
+                {
+                    code: languageCode,
+                    name: languageData.name,
+                    iconPath: languageData.iconPath
+                }
+            )
+            )
         );
 }
 
@@ -85,7 +122,6 @@ export function isValidLanguageCode( languageCode )
 
     return availableLanguages.includes( languageCode );
 }
-
 
 export function getRequestBrowserLanguageCode( request )
 {

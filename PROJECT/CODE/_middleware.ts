@@ -1,5 +1,6 @@
 import { FreshContext } from "$fresh/server.ts";
-import {
+import
+{
     setRequestLanguageCode,
     getRequestLanguageCode,
     getPathLanguageCode,
@@ -24,7 +25,7 @@ export async function handler( req: Request, ctx: FreshContext )
         let pathWithoutLanguage = getPathWithoutLanguage( pathname );
         let redirectUrl = `/${languageCode}${pathWithoutLanguage === "/" ? "" : pathWithoutLanguage}`;
 
-        return new Response( 
+        return new Response(
             null,
             {
                 status: 302,

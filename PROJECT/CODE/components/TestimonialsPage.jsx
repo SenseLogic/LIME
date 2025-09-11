@@ -1,18 +1,19 @@
-import { getLocalizedTextBySlug, getApplicationData } from "../application.js";
+import { getApplicationData } from "../application.js";
 
 export default function TestimonialsPage()
 {
     let applicationData = getApplicationData();
+    let testimonialsPageData = applicationData.testimonialsPage;
 
     return (
         <div className="testimonials-page">
             <section className="testimonials-page-hero">
                 <div className="testimonials-page-hero-container">
                     <h1 className="testimonials-page-hero-title">
-                        { getLocalizedTextBySlug( "testimonials-page-title" ) }
+                        { testimonialsPageData.title }
                     </h1>
                     <p className="testimonials-page-hero-subtitle">
-                        { getLocalizedTextBySlug( "testimonials-page-text" ) }
+                        { testimonialsPageData.text }
                     </p>
                 </div>
             </section>

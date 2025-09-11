@@ -1,4 +1,4 @@
-import { getLocalizedTextBySlug, getApplicationData } from "../application.js";
+import { getApplicationData } from "../application.js";
 
 export default function HomePage()
 {
@@ -11,7 +11,7 @@ export default function HomePage()
                 <div className="home-page-hero-container">
                     <div className="home-page-hero-content">
                         <h1 className="home-page-hero-title">
-                            { getLocalizedTextBySlug( "home-page-text" ) }
+                            { homePageData.title }
                         </h1>
                         <p className="home-page-hero-subtitle">
                             { homePageData.heroSubtitle }

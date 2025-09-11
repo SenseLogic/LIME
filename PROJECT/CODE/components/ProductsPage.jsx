@@ -1,18 +1,19 @@
-import { getLocalizedTextBySlug, getApplicationData } from "../application.js";
+import { getApplicationData } from "../application.js";
 
 export default function ProductsPage()
 {
     let applicationData = getApplicationData();
+    let productsPageData = applicationData.productsPage;
 
     return (
         <div className="products-page">
             <section className="products-page-hero">
                 <div className="products-page-hero-container">
                     <h1 className="products-page-hero-title">
-                        { getLocalizedTextBySlug( "products-page-title" ) }
+                        { productsPageData.title }
                     </h1>
                     <p className="products-page-hero-subtitle">
-                        { getLocalizedTextBySlug( "products-page-text" ) }
+                        { productsPageData.text }
                     </p>
                 </div>
             </section>
@@ -21,7 +22,7 @@ export default function ProductsPage()
                 <div className="products-page-filters-container">
                     <div className="products-page-filter">
                         <label className="products-page-filter-label">
-                            { getLocalizedTextBySlug( "products-page-gender-button" ) }
+                            { productsPageData.genderButton }
                         </label>
                         <select className="products-page-filter-select">
                             <option value="">All Genders</option>
@@ -38,7 +39,7 @@ export default function ProductsPage()
 
                     <div className="products-page-filter">
                         <label className="products-page-filter-label">
-                            { getLocalizedTextBySlug( "products-page-category-button" ) }
+                            { productsPageData.categoryButton }
                         </label>
                         <select className="products-page-filter-select">
                             <option value="">All Categories</option>
@@ -55,7 +56,7 @@ export default function ProductsPage()
 
                     <div className="products-page-filter">
                         <label className="products-page-filter-label">
-                            { getLocalizedTextBySlug( "products-page-brand-button" ) }
+                            { productsPageData.brandButton }
                         </label>
                         <select className="products-page-filter-select">
                             <option value="">All Brands</option>

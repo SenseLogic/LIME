@@ -1,8 +1,9 @@
-import { getLocalizedTextBySlug, getApplicationData } from "../application.js";
+import { getApplicationData } from "../application.js";
 
 export default function BlogPage()
 {
     let applicationData = getApplicationData();
+    let blogPageData = applicationData.blogPage;
     let blogPostArray = applicationData.blogPostArray;
     let blogCategoryArray = applicationData.blogCategoryArray;
 
@@ -11,10 +12,10 @@ export default function BlogPage()
             <section className="blog-page-hero">
                 <div className="blog-page-hero-container">
                     <h1 className="blog-page-hero-title">
-                        { getLocalizedTextBySlug( "blog-page-title" ) }
+                        { blogPageData.title }
                     </h1>
                     <p className="blog-page-hero-subtitle">
-                        { getLocalizedTextBySlug( "blog-page-text" ) }
+                        { blogPageData.text }
                     </p>
                 </div>
             </section>

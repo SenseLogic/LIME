@@ -1,4 +1,4 @@
-import { getLocalizedTextBySlug, getApplicationData } from "../application.js";
+import { getApplicationData } from "../application.js";
 
 export default function AboutPage()
 {
@@ -10,10 +10,10 @@ export default function AboutPage()
             <section className="about-page-hero">
                 <div className="about-page-hero-container">
                     <h1 className="about-page-hero-title">
-                        { getLocalizedTextBySlug( "about-page-title" ) }
+                        { aboutPageData.title }
                     </h1>
                     <p className="about-page-hero-subtitle">
-                        { getLocalizedTextBySlug( "about-page-text" ) }
+                        { aboutPageData.text }
                     </p>
                 </div>
             </section>

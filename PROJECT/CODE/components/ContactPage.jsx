@@ -1,4 +1,4 @@
-import { getLocalizedTextBySlug, getApplicationData } from "../application.js";
+import { getApplicationData } from "../application.js";
 
 export default function ContactPage()
 {
@@ -78,10 +78,10 @@ export default function ContactPage()
             <section className="contact-page-hero">
                 <div className="contact-page-hero-container">
                     <h1 className="contact-page-hero-title">
-                        { getLocalizedTextBySlug( "contact-page-title" ) }
+                        { contactPageData.title }
                     </h1>
                     <p className="contact-page-hero-subtitle">
-                        { getLocalizedTextBySlug( "contact-page-text" ) }
+                        { contactPageData.text }
                     </p>
                 </div>
             </section>
@@ -93,48 +93,48 @@ export default function ContactPage()
                         <form className="contact-page-form" onSubmit={ handleSubmit }>
                             <div className="contact-page-form-group">
                                 <label htmlFor="name" className="contact-page-form-label">
-                                    { getLocalizedTextBySlug( "contact-page-name-placeholder" ) }
+                                    { contactPageData.namePlaceholder }
                                 </label>
                                 <input
                                     type="text"
                                     id="name"
                                     name="name"
                                     className="contact-page-form-input"
-                                    placeholder={ getLocalizedTextBySlug( "contact-page-name-placeholder" ) }
+                                    placeholder={ contactPageData.namePlaceholder }
                                     required
                                 />
                             </div>
 
                             <div className="contact-page-form-group">
                                 <label htmlFor="email" className="contact-page-form-label">
-                                    { getLocalizedTextBySlug( "contact-page-email-placeholder" ) }
+                                    { contactPageData.emailPlaceholder }
                                 </label>
                                 <input
                                     type="email"
                                     id="email"
                                     name="email"
                                     className="contact-page-form-input"
-                                    placeholder={ getLocalizedTextBySlug( "contact-page-email-placeholder" ) }
+                                    placeholder={ contactPageData.emailPlaceholder }
                                     required
                                 />
                             </div>
 
                             <div className="contact-page-form-group">
                                 <label htmlFor="message" className="contact-page-form-label">
-                                    { getLocalizedTextBySlug( "contact-page-message-placeholder" ) }
+                                    { contactPageData.messagePlaceholder }
                                 </label>
                                 <textarea
                                     id="message"
                                     name="message"
                                     rows="5"
                                     className="contact-page-form-textarea"
-                                    placeholder={ getLocalizedTextBySlug( "contact-page-message-placeholder" ) }
+                                    placeholder={ contactPageData.messagePlaceholder }
                                     required
                                 ></textarea>
                             </div>
 
                             <button type="submit" className="contact-page-form-button">
-                                { getLocalizedTextBySlug( "contact-page-send-button" ) }
+                                { contactPageData.sendButton }
                             </button>
                         </form>
                     </div>

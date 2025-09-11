@@ -1,43 +1,4 @@
 {
-    textBySlugMap
-        {
-            home-page-text
-                LimeShoes
-            about-page-title
-                About us
-            about-page-text
-                Lorem ipsum
-            products-page-title
-                Products
-            products-page-text
-                Lorem ipsum
-            products-page-gender-button
-                Gender
-            products-page-category-button
-                Category
-            products-page-brand-button
-                Brand
-            testimonials-page-title
-                Testimonials
-            testimonials-page-text
-                Lorem ipsum
-            blog-page-title
-                Blog
-            blog-page-text
-                Lorem ipsum
-            contact-page-title
-                Contact Us
-            contact-page-text
-                Lorem ipsum
-            contact-page-name-placeholder
-                Name
-            contact-page-email-placeholder
-                Email
-            contact-page-message-placeholder
-                Message
-            contact-page-send-button
-                Send
-        }
     languageByCodeMap
         {
             en
@@ -345,6 +306,10 @@
         ]
     aboutPage
         {
+            title
+                About us
+            text
+                Lorem ipsum
             storyTitle
                 Our Story
             storyText1
@@ -368,6 +333,18 @@
         }
     contactPage
         {
+            title
+                Contact Us
+            text
+                Lorem ipsum
+            namePlaceholder
+                Name
+            emailPlaceholder
+                Email
+            messagePlaceholder
+                Message
+            sendButton
+                Send
             email
                 info@limeshoes.com
             phone
@@ -387,6 +364,8 @@
         }
     homePage
         {
+            title
+                LimeShoes
             heroSubtitle
                 Discover the perfect pair of shoes for every occasion
             shopNowButton
@@ -413,5 +392,32 @@
                 Best Prices
             feature3Description
                 Competitive prices with great deals
+        }
+    productsPage
+        {
+            title
+                Products
+            text
+                Lorem ipsum
+            genderButton
+                Gender
+            categoryButton
+                Category
+            brandButton
+                Brand
+        }
+    testimonialsPage
+        {
+            title
+                Testimonials
+            text
+                Lorem ipsum
+        }
+    blogPage
+        {
+            title
+                Blog
+            text
+                Lorem ipsum
         }
 }

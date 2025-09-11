@@ -211,18 +211,271 @@ $yellowColor850: mix($yellowColor, #FFFFFF, 70%);
 $yellowColor900: mix($yellowColor, #FFFFFF, 80%);
 $yellowColor950: mix($yellowColor, #FFFFFF, 90%);
 
-$primary-color: #059669;
-$secondary-color: #86efac;
-$accent-color: #047857;
-$text-color: #111827;
-$background-color: #ffffff;
+$tableBorderColor: #F0F0F0;
+$linkColor: #000000;
+$linkHoverColor: #202020;
+
+html
+{
+    height: 100%;
+    min-height: 100%;
+}
+
+body
+{
+    height: 100%;
+    min-height: 100%;
+
+    background-color: $whiteColor;
+
+    color: $blackColor;
+}
+
+body,
+button,
+input,
+textarea
+{
+    font-family: sans-serif;
+}
+
+sup
+{
+    position: relative;
+    top: -0.7em;
+
+    font-size: 0.5em;
+    vertical-align: baseline;
+}
+
+table
+{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-collapse: collapse;
+}
+
+table tr:first-child
+{
+    font-weight: 700;
+    text-align: center;
+}
+
+td
+{
+    border: 1px solid $tableBorderColor;
+    padding: 0.5rem;
+}
+
+.link,
+.link-button
+{
+    color: $linkColor;
+
+    cursor: pointer;
+}
+
+.link:hover,
+.link-button:hover
+{
+    color: $linkHoverColor;
+}
+
+.paragraph
+{
+    min-height: 1em;
+}
+
+.paragraph + .paragraph
+{
+    margin-top: 0.8em;
+}
+
+.linebreak
+{
+    margin-bottom: 0.8em;
+
+    display: block;
+
+    content: "";
+}
+
+.title-1
+{
+    font-size: 2rem;
+}
+
+.title-2
+{
+    font-size: 1.75rem;
+}
+
+.title-3
+{
+    font-size: 1.5rem;
+}
+
+.title-4
+{
+    font-size: 1.25rem;
+}
+
+.dash-bullet-1
+{
+    margin-left: 1em;
+}
+
+.dash-bullet-2
+{
+    margin-left: 2em;
+}
+
+.dash-bullet-3
+{
+    margin-left: 3em;
+}
+
+.dash-bullet-4
+{
+    margin-left: 4em;
+}
+
+.dash-bullet-1::before,
+.dash-bullet-2::before,
+.dash-bullet-3::before,
+.dash-bullet-4::before
+{
+    position: absolute;
+    transform: translateX( -0.9em );
+
+    content: "-";
+}
+
+.round-bullet-1
+{
+    margin-left: 1em;
+}
+
+.round-bullet-2
+{
+    margin-left: 2em;
+}
+
+.round-bullet-3
+{
+    margin-left: 3em;
+}
+
+.round-bullet-4
+{
+    margin-left: 4em;
+}
+
+.round-bullet-1::before,
+.round-bullet-2::before,
+.round-bullet-3::before,
+.round-bullet-4::before
+{
+    position: absolute;
+    transform: translateX( -0.9em );
+
+    content: "\2022";
+}
+
+.hollow-bullet-1
+{
+    margin-left : 1em;
+}
+
+.hollow-bullet-2
+{
+    margin-left : 2em;
+}
+
+.hollow-bullet-3
+{
+    margin-left : 3em;
+}
+
+.hollow-bullet-4
+{
+    margin-left : 4em;
+}
+
+.hollow-bullet-1::before,
+.hollow-bullet-2::before,
+.hollow-bullet-3::before,
+.hollow-bullet-4::before
+{
+    position : absolute;
+    transform : translateX( -0.9em );
+
+    content : "\25E6";
+}
+
+.numbered-bullet-1
+{
+    display: grid;
+    grid-template-columns: max( auto, 1em ) 1fr;
+    gap: 0.5em;
+}
+
+.numbered-bullet-2
+{
+    margin-left: 1.5em;
+
+    display: grid;
+    grid-template-columns: max( auto, 1em ) 1fr;
+    gap: 0.5em;
+}
+
+.numbered-bullet-3
+{
+    margin-left: 3em;
+
+    display: grid;
+    grid-template-columns: max( auto, 1em ) 1fr;
+    gap: 0.5em;
+}
+
+.numbered-bullet-4
+{
+    margin-left: 4.5em;
+
+    display: grid;
+    grid-template-columns: max( auto, 1em ) 1fr;
+    gap: 0.5em;
+}
+
+.is-hidden
+{
+    display: none !important;
+}
+
+.has-debug-outline *
+{
+    outline: 1px solid red !important;
+}
+
+.has-debug-outline *:hover
+{
+    outline: 2px solid green !important;
+}
+
+// ~~
+
+$primaryColor: #059669;
+$secondaryColor: #86efac;
+$accentColor: #047857;
+$textColor: #111827;
+$backgroundColor: #ffffff;
 $border-radius: 0.5rem;
 $box-shadow: 0 0.125rem 0.625rem rgba( 0, 0, 0, 0.1 );
 
-@mixin button-style( $bg-color, $text-color: white )
+@mixin button-style( $bgColor, $textColor: white )
 {
-    background-color: $bg-color;
-    color: $text-color;
+    background-color: $bgColor;
+    color: $textColor;
     border: none;
     border-radius: $border-radius;
     padding: 0.75rem 1.5rem;
@@ -260,8 +513,8 @@ $box-shadow: 0 0.125rem 0.625rem rgba( 0, 0, 0, 0.1 );
 
 body
 {
-    background-color: $background-color;
-    color: $text-color;
+    background-color: $backgroundColor;
+    color: $textColor;
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
     line-height: 1.6;
@@ -301,7 +554,7 @@ body header .header-content .logo
 {
     font-size: 1.5rem;
     font-weight: bold;
-    color: $primary-color;
+    color: $primaryColor;
 }
 
 body header .header-content nav ul
@@ -316,14 +569,14 @@ body header .header-content nav ul
 body header .header-content nav ul li a
 {
     text-decoration: none;
-    color: $text-color;
+    color: $textColor;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 body header .header-content nav ul li a:hover
 {
-    color: $primary-color;
+    color: $primaryColor;
 }
 
 body main
@@ -341,7 +594,7 @@ body main .hero h1
 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    color: $primary-color;
+    color: $primaryColor;
 }
 
 @media ( max-width: 768px )
@@ -356,7 +609,7 @@ body main .hero p
 {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    color: lighten( $text-color, 20% );
+    color: lighten( $textColor, 20% );
 }
 
 body main .hero .cta-buttons
@@ -368,7 +621,7 @@ body main .hero .cta-buttons
 
 body main .hero .cta-buttons .btn-primary
 {
-    @include button-style( $primary-color );
+    @include button-style( $primaryColor );
 }
 
 body main .hero .cta-buttons .btn-primary:hover
@@ -383,7 +636,7 @@ body main .hero .cta-buttons .btn-primary:active
 
 body main .hero .cta-buttons .btn-secondary
 {
-    @include button-style( $secondary-color );
+    @include button-style( $secondaryColor );
 }
 
 body main .hero .cta-buttons .btn-secondary:hover
@@ -398,7 +651,7 @@ body main .hero .cta-buttons .btn-secondary:active
 
 body main .hero .cta-buttons .btn-accent
 {
-    @include button-style( $accent-color );
+    @include button-style( $accentColor );
 }
 
 body main .hero .cta-buttons .btn-accent:hover
@@ -429,7 +682,7 @@ body main .features .feature-card .feature-icon
 {
     width: 4rem;
     height: 4rem;
-    background: linear-gradient( 135deg, $primary-color, $secondary-color );
+    background: linear-gradient( 135deg, $primaryColor, $secondaryColor );
     border-radius: 50%;
     @include flex-center;
     margin: 0 auto 1rem;
@@ -439,19 +692,19 @@ body main .features .feature-card .feature-icon
 
 body main .features .feature-card h3
 {
-    color: $primary-color;
+    color: $primaryColor;
     margin-bottom: 0.75rem;
 }
 
 body main .features .feature-card p
 {
-    color: lighten( $text-color, 15% );
+    color: lighten( $textColor, 15% );
     line-height: 1.6;
 }
 
 body footer
 {
-    background: darken( $background-color, 5% );
+    background: darken( $backgroundColor, 5% );
     padding: 2.5rem 0;
     text-align: center;
     margin-top: 3.75rem;
@@ -459,7 +712,7 @@ body footer
 
 body footer p
 {
-    color: lighten( $text-color, 30% );
+    color: lighten( $textColor, 30% );
     margin: 0;
 }
 
