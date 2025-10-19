@@ -1,0 +1,27 @@
+aboutPage
+    {
+        title
+            About us
+        text
+            Lorem ipsum
+        storyTitle
+            Our Story
+        storyText1
+            LimeShoes was founded with a simple mission: to provide high-quality footwear that combines style, comfort, and durability. We believe that everyone deserves to walk in shoes that make them feel confident and comfortable.
+        storyText2
+            Since our inception, we've been committed to sourcing the best shoes from trusted brands around the world, ensuring our customers have access to the latest trends and timeless classics.
+        valuesTitle
+            Our Values
+        value1Title
+            Quality First
+        value1Description
+            We never compromise on quality. Every shoe in our collection meets our strict standards for durability and craftsmanship.
+        value2Title
+            Customer Satisfaction
+        value2Description
+            Your happiness is our priority. We're here to help you find the perfect pair of shoes and ensure you're completely satisfied.
+        value3Title
+            Innovation
+        value3Description
+            We stay ahead of trends and continuously improve our selection to bring you the latest in footwear technology and design.
+    }

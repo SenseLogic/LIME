@@ -1,0 +1,7 @@
+genderBySlugMap
+    {
+        men
+            Men
+        women
+            Women
+    }

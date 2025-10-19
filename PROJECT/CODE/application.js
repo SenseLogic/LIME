@@ -63,8 +63,7 @@ export function getApplicationData()
     {
         try
         {
-            applicationData = readDefFile( "./application_data.def", { readTextFileFunction: readDataFile } );
-
+            applicationData = readDefFile( "data/application_data.def", { readTextFileFunction: readDataFile } );
         }
         catch ( error )
         {

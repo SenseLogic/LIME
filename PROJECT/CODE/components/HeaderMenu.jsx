@@ -37,7 +37,7 @@ export default function HeaderMenu( { languageCode } )
                     </ul>
                 </nav>
                 <div className="header-menu-language">
-                    <select 
+                    <select
                         className="header-menu-language-select"
                         value={ languageCode }
                         onChange={ ( event ) => window.location.href = getLanguageCodePath( path, event.target.value ) }
@@ -58,4 +58,3 @@ export default function HeaderMenu( { languageCode } )
         </header>
     );
 }
-

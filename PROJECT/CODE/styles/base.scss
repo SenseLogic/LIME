@@ -219,6 +219,28 @@ html
 {
     height: 100%;
     min-height: 100%;
+
+    font-size: 1rem;
+
+    @media ( min-width: 90em )
+    {
+        font-size: 1.1rem;
+    }
+
+    @media ( min-width: 100em )
+    {
+        font-size: 1.2rem;
+    }
+
+    @media ( min-width: 110em )
+    {
+        font-size: 1.3rem;
+    }
+
+    @media ( min-width: 120em )
+    {
+        font-size: 1.4rem;
+    }
 }
 
 body
@@ -237,6 +259,13 @@ input,
 textarea
 {
     font-family: sans-serif;
+    font-weight: 400;
+}
+
+a
+{
+    text-decoration: none;
+    color: inherit;
 }
 
 sup
@@ -474,12 +503,15 @@ $box-shadow: 0 0.125rem 0.625rem rgba( 0, 0, 0, 0.1 );
 
 @mixin button-style( $bgColor, $textColor: white )
 {
-    background-color: $bgColor;
-    color: $textColor;
     border: none;
     border-radius: $border-radius;
     padding: 0.75rem 1.5rem;
+
+    background-color: $bgColor;
+
     font-weight: 600;
+    color: $textColor;
+
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -487,6 +519,7 @@ $box-shadow: 0 0.125rem 0.625rem rgba( 0, 0, 0, 0.1 );
 @mixin button-style-hover
 {
     transform: translateY( -0.125rem );
+
     box-shadow: $box-shadow;
 }
 
@@ -498,34 +531,37 @@ $box-shadow: 0 0.125rem 0.625rem rgba( 0, 0, 0, 0.1 );
 @mixin flex-center
 {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 @mixin card-style
 {
-    background: white;
-    border-radius: $border-radius;
-    box-shadow: $box-shadow;
-    padding: 1.5rem;
     margin: 1rem 0;
+    border-radius: $border-radius;
+    padding: 1.5rem;
+
+    background: white;
+    box-shadow: $box-shadow;
 }
 
 body
 {
-    background-color: $backgroundColor;
-    color: $textColor;
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-    line-height: 1.6;
     margin: 0;
     padding: 0;
+
+    background-color: $backgroundColor;
+
+    line-height: 1.6;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    color: $textColor;
 }
 
 body .container
 {
-    max-width: 75rem;
     margin: 0 auto;
+    max-width: 75rem;
     padding: 0 1.25rem;
 }
 
@@ -539,9 +575,10 @@ body .container
 
 body header
 {
+    padding: 1rem 0;
+
     background: white;
     box-shadow: $box-shadow;
-    padding: 1rem 0;
 }
 
 body header .header-content
@@ -568,9 +605,10 @@ body header .header-content nav ul
 
 body header .header-content nav ul li a
 {
+    font-weight: 500;
     text-decoration: none;
     color: $textColor;
-    font-weight: 500;
+
     transition: color 0.3s ease;
 }
 
@@ -586,14 +624,16 @@ body main
 
 body main .hero
 {
-    text-align: center;
     padding: 3.75rem 0;
+
+    text-align: center;
 }
 
 body main .hero h1
 {
-    font-size: 3rem;
     margin-bottom: 1rem;
+
+    font-size: 3rem;
     color: $primaryColor;
 }
 
@@ -607,16 +647,17 @@ body main .hero h1
 
 body main .hero p
 {
-    font-size: 1.2rem;
     margin-bottom: 2rem;
+
+    font-size: 1.2rem;
     color: lighten( $textColor, 20% );
 }
 
 body main .hero .cta-buttons
 {
     @include flex-center;
-    gap: 1rem;
     flex-wrap: wrap;
+    gap: 1rem;
 }
 
 body main .hero .cta-buttons .btn-primary
@@ -666,10 +707,11 @@ body main .hero .cta-buttons .btn-accent:active
 
 body main .features
 {
+    margin: 3.75rem 0;
+
     display: grid;
     grid-template-columns: repeat( auto-fit, minmax( 18.75rem, 1fr ) );
     gap: 2rem;
-    margin: 3.75rem 0;
 }
 
 body main .features .feature-card
@@ -680,40 +722,46 @@ body main .features .feature-card
 
 body main .features .feature-card .feature-icon
 {
-    width: 4rem;
     height: 4rem;
-    background: linear-gradient( 135deg, $primaryColor, $secondaryColor );
+    width: 4rem;
     border-radius: 50%;
+
+    background: linear-gradient( 135deg, $primaryColor, $secondaryColor );
     @include flex-center;
     margin: 0 auto 1rem;
+
     font-size: 1.5rem;
     color: white;
 }
 
 body main .features .feature-card h3
 {
-    color: $primaryColor;
     margin-bottom: 0.75rem;
+
+    color: $primaryColor;
 }
 
 body main .features .feature-card p
 {
-    color: lighten( $textColor, 15% );
     line-height: 1.6;
+    color: lighten( $textColor, 15% );
 }
 
 body footer
 {
-    background: darken( $backgroundColor, 5% );
-    padding: 2.5rem 0;
-    text-align: center;
     margin-top: 3.75rem;
+    padding: 2.5rem 0;
+
+    background: darken( $backgroundColor, 5% );
+
+    text-align: center;
 }
 
 body footer p
 {
-    color: lighten( $textColor, 30% );
     margin: 0;
+
+    color: lighten( $textColor, 30% );
 }
 
 .text-center
@@ -758,69 +806,82 @@ $button-transition: all 0.2s ease;
 
 .button
 {
-    display: inline-block;
-    padding: $button-padding;
     border: none;
     border-radius: $button-border-radius;
+    padding: $button-padding;
+
+    display: inline-block;
+
     font-weight: 600;
+    text-align: center;
     text-decoration: none;
+
     cursor: pointer;
     transition: $button-transition;
-    text-align: center;
 }
 
 .button.primary
 {
     background-color: #3498db;
+
     color: white;
 }
 
 .button.primary:hover
 {
-    background-color: darken( #3498db, 10% );
     transform: translateY( -0.0625rem );
+
+    background-color: darken( #3498db, 10% );
 }
 
 .button.secondary
 {
     background-color: #95a5a6;
+
     color: white;
 }
 
 .button.secondary:hover
 {
-    background-color: darken( #95a5a6, 10% );
     transform: translateY( -0.0625rem );
+
+    background-color: darken( #95a5a6, 10% );
 }
 
 .button.outline
 {
-    background-color: transparent;
-    color: #3498db;
     border: 2px solid #3498db;
+
+    background-color: transparent;
+
+    color: #3498db;
 }
 
 .button.outline:hover
 {
     background-color: #3498db;
+
     color: white;
 }
 
 .button.small
 {
     padding: 0.5rem 1rem;
+
     font-size: 0.875rem;
 }
 
 .button.large
 {
     padding: 1rem 2rem;
+
     font-size: 1.125rem;
 }
 
 .button:disabled
 {
     opacity: 0.6;
+
     cursor: not-allowed;
 }
 
@@ -831,11 +892,12 @@ $button-transition: all 0.2s ease;
 
 .card
 {
-    background: white;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.125rem 0.5rem rgba( 0, 0, 0, 0.1 );
-    padding: 1.5rem;
     margin: 1rem 0;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+
+    background: white;
+    box-shadow: 0 0.125rem 0.5rem rgba( 0, 0, 0, 0.1 );
 }
 
 .card .card-header
@@ -845,30 +907,32 @@ $button-transition: all 0.2s ease;
 
 .card .card-header .card-title
 {
+    margin: 0;
+
     font-size: 1.25rem;
     font-weight: 600;
     color: #2c3e50;
-    margin: 0;
 }
 
 .card .card-header .card-subtitle
 {
+    margin: 0.25rem 0 0 0;
+
     font-size: 0.875rem;
     color: #7f8c8d;
-    margin: 0.25rem 0 0 0;
 }
 
 .card .card-body
 {
-    color: #34495e;
     line-height: 1.6;
+    color: #34495e;
 }
 
 .card .card-footer
 {
     margin-top: 1rem;
-    padding-top: 1rem;
     border-top: 1px solid #ecf0f1;
+    padding-top: 1rem;
 }
 
 .form-group
@@ -878,8 +942,10 @@ $button-transition: all 0.2s ease;
 
 .form-group .form-label
 {
-    display: block;
     margin-bottom: 0.5rem;
+
+    display: block;
+
     font-weight: 500;
     color: #2c3e50;
 }
@@ -887,10 +953,12 @@ $button-transition: all 0.2s ease;
 .form-group .form-input
 {
     width: 100%;
-    padding: 0.75rem;
     border: 2px solid #ecf0f1;
     border-radius: 0.375rem;
+    padding: 0.75rem;
+
     font-size: 1rem;
+
     transition: border-color 0.2s ease;
 }
 
@@ -907,7 +975,8 @@ $button-transition: all 0.2s ease;
 
 .form-group .form-error
 {
-    color: #e74c3c;
-    font-size: 0.875rem;
     margin-top: 0.25rem;
+
+    font-size: 0.875rem;
+    color: #e74c3c;
 }

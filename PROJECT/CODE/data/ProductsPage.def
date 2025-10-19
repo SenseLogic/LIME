@@ -1,0 +1,13 @@
+productsPage
+    {
+        title
+            Products
+        text
+            Lorem ipsum
+        genderButton
+            Gender
+        categoryButton
+            Category
+        brandButton
+            Brand
+    }
