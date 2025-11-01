@@ -1,0 +1,26 @@
+[
+    {
+        slug
+            running
+        name
+            Running
+    }
+    {
+        slug
+            fashion
+        name
+            Fashion
+    }
+    {
+        slug
+            care
+        name
+            Care
+    }
+    {
+        slug
+            reviews
+        name
+            Reviews
+    }
+]

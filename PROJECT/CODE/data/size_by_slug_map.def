@@ -1,0 +1,12 @@
+{
+    extra-small
+        XS
+    small
+        S
+    medium
+        M
+    large
+        L
+    extra-large
+        XL
+}

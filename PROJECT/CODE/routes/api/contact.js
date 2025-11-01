@@ -1,3 +1,10 @@
+// -- IMPORTS
+
+import { contactService } from '../../services/contact_service.js';
+import { resendService } from '../../services/resend_service.js';
+
+// -- HANDLER
+
 export let handler = {
     async POST( contactRequest )
     {
@@ -5,52 +12,109 @@ export let handler = {
         {
             let contactFormData = await contactRequest.formData();
 
-            let contactSubmissionData = {
-                name: contactFormData.get( "name" )?.toString() || "",
-                email: contactFormData.get( "email" )?.toString() || "",
-                message: contactFormData.get( "message" )?.toString() || "",
-                timestamp: new Date().toISOString(),
-                submittedAt: Date.now()
-            };
+            let contactName = contactFormData.get( "name" )?.toString() || "";
+            let contactEmail = contactFormData.get( "email" )?.toString() || "";
+            let contactMessage = contactFormData.get( "message" )?.toString() || "";
 
-            if ( !contactSubmissionData.name || !contactSubmissionData.email || !contactSubmissionData.message )
+            if ( !contactName 
+                 || !contactEmail 
+                 || !contactMessage 
+                 || contactName.length === 0
+                 || contactEmail.length === 0
+                 || contactMessage.length === 0 )
             {
-                return new Response(
-                    JSON.stringify(
+                return (
+                    new Response(
+                        JSON.stringify(
+                            {
+                                success: false,
+                                error: "All fields are required"
+                            }
+                        ),
                         {
-                            success: false,
-                            error: "All fields are required"
+                            status: 400,
+                            headers: { "Content-Type": "application/json" }
                         }
-                    ),
-                    {
-                        status: 400,
-                        headers: { "Content-Type": "application/json" }
-                    }
+                        )
                     );
             }
 
-            let currentDateTime = new Date();
-            let timestampString =
-                currentDateTime.getFullYear().toString() +
-                ( currentDateTime.getMonth() + 1 ).toString().padStart( 2, "0" ) +
-                currentDateTime.getDate().toString().padStart( 2, "0" ) +
-                currentDateTime.getHours().toString().padStart( 2, "0" ) +
-                currentDateTime.getMinutes().toString().padStart( 2, "0" ) +
-                currentDateTime.getSeconds().toString().padStart( 2, "0" ) +
-                currentDateTime.getMilliseconds().toString().padStart( 3, "0" ) +
-                Math.floor( Math.random() * 1000 ).toString().padStart( 3, "0" );
 
-            let contactFileName = `${ timestampString }.json`;
-            let contactFilePath = `./data/contact/${ contactFileName }`;
+            let contactData = 
+                {
+                    name: contactName,
+                    email: contactEmail,
+                    message: contactMessage
+                };
 
-            await Deno.writeTextFile( contactFilePath, JSON.stringify( contactSubmissionData, null, 2 ) );
+            let contactServiceResult = await contactService.addContact( contactData );
+
+            if ( contactServiceResult === null )
+            {
+                return (
+                    new Response(
+                        JSON.stringify(
+                            {
+                                success: false,
+                                error: "Failed to save contact information"
+                            }
+                        ),
+                        {
+                            status: 500,
+                            headers: { "Content-Type": "application/json" }
+                        }
+                        )
+                    );
+            }
+
+            let senderEmail = Deno.env.get( "LIME_PROJECT_RESEND_EMAIL" );
+            let emailSubject = "Thank you for contacting us";
+            
+            let escapedName = 
+                contactName
+                    .replace( /&/g, "&amp;" )
+                    .replace( /</g, "&lt;" )
+                    .replace( />/g, "&gt;" )
+                    .replace( /"/g, "&quot;" )
+                    .replace( /'/g, "&#39;" );
+                
+            let escapedMessage = 
+                contactMessage
+                    .replace( /&/g, "&amp;" )
+                    .replace( /</g, "&lt;" )
+                    .replace( />/g, "&gt;" )
+                    .replace( /"/g, "&quot;" )
+                    .replace( /'/g, "&#39;" )
+                    .replace( /\n/g, "<br>" );
+            
+            let emailBody = `
+                <html>
+                    <body>
+                        <p>Hi ${ escapedName },</p>
+                        <p>Thank you for contacting us.</p>
+                        <p>We have received your message and will get back to you as soon as possible.</p>
+                        <p>Your message:</p>
+                        <p style="background-color: #f5f5f5; padding: 15px; border-radius: 5px;">
+                            ${ escapedMessage }
+                        </p>
+                        <p>Best regards,</p>
+                        <p>The Lime Shoes Team</p>
+                    </body>
+                </html>
+            `;
+
+            await resendService.sendMail(
+                senderEmail,
+                [ contactEmail ],
+                emailSubject,
+                emailBody
+                );
 
             return new Response(
                 JSON.stringify(
                     {
                         success: true,
-                        message: "Contact form submitted successfully",
-                        filename: contactFileName
+                        message: "Contact form submitted successfully"
                     }
                 ),
                 {

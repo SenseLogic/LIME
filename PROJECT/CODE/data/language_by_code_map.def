@@ -1,0 +1,23 @@
+{
+    en
+        {
+            name
+                English
+            iconPath
+                /image/icon/english.svg
+        }
+    fr
+        {
+            name
+                French
+            iconPath
+                /image/icon/french.svg
+        }
+    de
+        {
+            name
+                German
+            iconPath
+                /image/flag/german.svg
+        }
+}

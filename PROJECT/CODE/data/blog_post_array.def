@@ -1,0 +1,50 @@
+[
+    {
+        id
+            1
+        title
+            The Ultimate Guide to Choosing Running Shoes
+        excerpt
+            Learn how to select the perfect running shoes for your foot type and running style.
+        date
+            2025-01-15
+        author
+            Sarah Johnson
+        image
+            /logo.svg
+        category
+            Running
+    }
+    {
+        id
+            2
+        title
+            Sneaker Trends for 2025
+        excerpt
+            Discover the latest sneaker trends and styles that will dominate this year.
+        date
+            2025-01-10
+        author
+            Mike Chen
+        image
+            /logo.svg
+        category
+            Fashion
+    }
+    {
+        id
+            3
+        title
+            How to Care for Your Leather Shoes
+        excerpt
+            Essential tips for maintaining and extending the life of your leather footwear.
+        date
+            2025-01-05
+        author
+            Emily Davis
+        image
+            /logo.svg
+        category
+            Care
+    }
+]
