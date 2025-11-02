@@ -1,8 +1,7 @@
 // -- IMPORTS
 
 import { getMapById, logError } from 'senselogic-opus';
-import { databaseService } from './database_service';
-import { contactTypeService } from './contact_type_service';
+import { databaseService } from './database_service.js';
 
 // -- FUNCTIONS
 
@@ -79,8 +78,7 @@ class ContactService
     // ~~
 
     async getContactArrayByMail(
-        mail,
-        isInflated = false
+        mail
         )
     {
         let { data, error } =
@@ -92,17 +90,6 @@ class ContactService
         if ( error !== null )
         {
             logError( error );
-        }
-
-        if ( data !== null )
-        {
-            if ( isInflated )
-            {
-                this.inflateContactArray(
-                    data,
-                    await contactTypeService.getCachedContactTypeByIdMap()
-                    );
-            }
         }
 
         return data;

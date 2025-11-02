@@ -1,6 +1,6 @@
 // -- IMPORTS
 
-import { supabaseService } from './supabase_service';
+import { supabaseService } from './supabase_service.js';
 
 // -- CONSTANTS
 

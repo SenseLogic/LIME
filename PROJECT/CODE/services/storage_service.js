@@ -1,9 +1,9 @@
 // -- IMPORTS
 
 import { logError } from 'senselogic-opus';
-import { bunnyService } from './bunny_service';
-import { supabaseService } from './supabase_service';
-import { createLimitedImage } from '../base/image';
+import { bunnyService } from './bunny_service.js';
+import { supabaseService } from './supabase_service.js';
+import { createLimitedImage } from '../base/image.js';
 
 // -- TYPES
 
