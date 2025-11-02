@@ -1,6 +1,6 @@
 // -- IMPORTS
 
-import { logError } from 'senselogic-gist';
+import { logError } from 'senselogic-opus';
 import { supabaseService } from './supabase_service';
 
 // -- TYPES

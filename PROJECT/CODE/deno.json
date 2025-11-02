@@ -24,7 +24,9 @@
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
     "senselogic-def": "npm:senselogic-def@0.1.21",
     "senselogic-def-file": "npm:senselogic-def-file@0.1.19",
-    "senselogic-lingo": "npm:senselogic-lingo@0.1.7"
+    "senselogic-lingo": "npm:senselogic-lingo@0.1.7",
+    "senselogic-opus": "npm:senselogic-opus@0.1.0",
+    "senselogic-iota": "npm:senselogic-iota@0.1.0"
   },
   "compilerOptions": {
     "jsx": "react-jsxdev",

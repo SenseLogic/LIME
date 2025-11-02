@@ -1,6 +1,6 @@
 // -- IMPORTS
 
-import { logError } from 'senselogic-gist';
+import { logError } from 'senselogic-opus';
 import { bunnyService } from './bunny_service';
 import { supabaseService } from './supabase_service';
 import { createLimitedImage } from '../base/image';

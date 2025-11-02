@@ -1,6 +1,6 @@
 // -- IMPORTS
 
-import { getMapById, logError } from 'senselogic-gist';
+import { getMapById, logError } from 'senselogic-opus';
 import { databaseService } from './database_service';
 import { contactTypeService } from './contact_type_service';
 
