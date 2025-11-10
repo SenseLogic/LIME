@@ -1,7 +1,7 @@
 // -- IMPORTS
 
 import { getMapById, logError } from 'senselogic-opus';
-import { databaseService } from './database_service.js';
+import { supabaseService } from './supabase_service.js';
 
 // -- FUNCTIONS
 
@@ -36,7 +36,7 @@ class ContactService
         )
     {
         let { data, error } =
-            await databaseService.getClient()
+            await supabaseService.getClient()
                 .from( 'CONTACT' )
                 .select();
 
@@ -55,7 +55,7 @@ class ContactService
         )
     {
         let { data, error } =
-            await databaseService.getClient()
+            await supabaseService.getClient()
                 .from( 'CONTACT' )
                 .select()
                 .eq( 'id', contactId );
@@ -82,7 +82,7 @@ class ContactService
         )
     {
         let { data, error } =
-            await databaseService.getClient()
+            await supabaseService.getClient()
                 .from( 'CONTACT' )
                 .select()
                 .eq( 'mail', mail );
@@ -102,7 +102,7 @@ class ContactService
         )
     {
         let { data, error } =
-            await databaseService.getClient()
+            await supabaseService.getClient()
                 .from( 'CONTACT' )
                 .select()
                 .in( 'mail', mailArray );
@@ -163,7 +163,7 @@ class ContactService
         this.clearCache();
 
         let { data, error } =
-            await databaseService.getClient()
+            await supabaseService.getClient()
                 .from( 'CONTACT' )
                 .insert( contact );
 
@@ -185,7 +185,7 @@ class ContactService
         this.clearCache();
 
         let { data, error } =
-            await databaseService.getClient()
+            await supabaseService.getClient()
                 .from( 'CONTACT' )
                 .update( contact )
                 .eq( 'id', contactId );
@@ -207,7 +207,7 @@ class ContactService
         this.clearCache();
 
         let { data, error } =
-            await databaseService.getClient()
+            await supabaseService.getClient()
                 .from( 'CONTACT' )
                 .delete()
                 .eq( 'id', contactId );

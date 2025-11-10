@@ -1,7 +1,3 @@
-// -- IMPORTS
-
-import fs from 'fs';
-
 // -- TYPES
 
 class BunnyService
