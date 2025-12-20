@@ -10,7 +10,7 @@ export default function App( { Component, url } )
             <head>
                 <meta charset="utf-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>LimeShoes - Premium Footwear</title>
+                <title>Lime Project - Premium Footwear</title>
                 <link rel="stylesheet" href="/styles/main.css" />
             </head>
             <body>

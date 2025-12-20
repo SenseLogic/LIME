@@ -1,6 +1,6 @@
 // -- IMPORTS
 
-import { createServerClient } from '@supabase/ssr';
+import { createServerClient } from "@supabase/ssr";
 
 // -- STATEMENTS
 
@@ -36,11 +36,11 @@ class SupabaseService
                                         if ( request
                                              && request.cookies )
                                         {
-                                            return decodeURIComponent( request.cookies[ key ] ?? '' )
+                                            return decodeURIComponent( request.cookies[ key ] ?? "" )
                                         }
                                         else
                                         {
-                                            return '';
+                                            return "";
                                         }
                                     },
                                 set:
@@ -53,7 +53,7 @@ class SupabaseService
                                                 encodeURIComponent( value ),
                                                 {
                                                     ...options,
-                                                    sameSite: 'Lax',
+                                                    sameSite: "Lax",
                                                     httpOnly: true
                                                 }
                                                 );
@@ -66,7 +66,7 @@ class SupabaseService
                                         {
                                             reply.cookie(
                                                 key,
-                                                '',
+                                                "",
                                                 {
                                                     ...options,
                                                     httpOnly: true
@@ -98,7 +98,7 @@ class SupabaseService
                       storageFilePath,
                       localFile,
                       {
-                          cacheControl: '3600',
+                          cacheControl: "3600",
                           upsert: storageFileIsOverwritten
                       }
                       );

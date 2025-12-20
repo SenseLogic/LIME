@@ -1,7 +1,7 @@
 // -- IMPORTS
 
-import { logError } from 'senselogic-opus';
-import { Resend } from 'resend';
+import { logError } from "senselogic-opus";
+import { Resend } from "resend";
 
 // -- TYPES
 

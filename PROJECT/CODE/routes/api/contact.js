@@ -1,7 +1,7 @@
 // -- IMPORTS
 
-import { contactService } from '../../services/contact_service.js';
-import { resendService } from '../../services/resend_service.js';
+import { contactService } from "../../services/contact_service.js";
+import { resendService } from "../../services/resend_service.js";
 
 // -- HANDLER
 
@@ -98,7 +98,7 @@ export let handler = {
                             ${ escapedMessage }
                         </p>
                         <p>Best regards,</p>
-                        <p>The Lime Shoes Team</p>
+                        <p>The Lime Project Team</p>
                     </body>
                 </html>
             `;

@@ -25,6 +25,7 @@
     "@supabase/ssr": "npm:@supabase/ssr@^0.7.0",
     "resend": "npm:resend@^6.4.0",
     "sharp": "npm:sharp@0.34.4",
+    "stripe": "npm:stripe@^17.3.1",
     "senselogic-def": "npm:senselogic-def@0.1.21",
     "senselogic-def-file": "npm:senselogic-def-file@0.1.19",
     "senselogic-lingo": "npm:senselogic-lingo@0.1.7",

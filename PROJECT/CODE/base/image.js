@@ -1,7 +1,7 @@
 // -- IMPORTS
 
-import fs from 'fs/promises';
-import sharp from 'sharp';
+import fs from "fs/promises";
+import sharp from "sharp";
 
 // -- FUNCTIONS
 
@@ -43,8 +43,8 @@ export async function createResizedImage(
     newWidth,
     newHeight,
     quality = 80,
-    fit = 'cover',
-    fileFormat = 'avif'
+    fit = "cover",
+    fileFormat = "avif"
     )
 {
     try
@@ -71,7 +71,7 @@ export async function createConstrainedImage(
     minimumHeight = 0,
     maximumHeight = 32768,
     quality = 80,
-    fileFormat = 'avif'
+    fileFormat = "avif"
     )
 {
     try
@@ -119,7 +119,7 @@ export async function createLimitedImage(
     imageBuffer,
     maximumPixelCount,
     quality = 80,
-    fileFormat = 'avif'
+    fileFormat = "avif"
     )
 {
     try

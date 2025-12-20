@@ -1,7 +1,7 @@
 // -- IMPORTS
 
-import { getMapById, logError } from 'senselogic-opus';
-import { supabaseService } from './supabase_service.js';
+import { getMapById, logError } from "senselogic-opus";
+import { supabaseService } from "./supabase_service.js";
 
 // -- FUNCTIONS
 
@@ -37,7 +37,7 @@ class ContactService
     {
         let { data, error } =
             await supabaseService.getClient()
-                .from( 'CONTACT' )
+                .from( "CONTACT" )
                 .select();
 
         if ( error !== null )
@@ -56,9 +56,9 @@ class ContactService
     {
         let { data, error } =
             await supabaseService.getClient()
-                .from( 'CONTACT' )
+                .from( "CONTACT" )
                 .select()
-                .eq( 'id', contactId );
+                .eq( "id", contactId );
 
         if ( error !== null )
         {
@@ -83,9 +83,9 @@ class ContactService
     {
         let { data, error } =
             await supabaseService.getClient()
-                .from( 'CONTACT' )
+                .from( "CONTACT" )
                 .select()
-                .eq( 'mail', mail );
+                .eq( "mail", mail );
 
         if ( error !== null )
         {
@@ -103,9 +103,9 @@ class ContactService
     {
         let { data, error } =
             await supabaseService.getClient()
-                .from( 'CONTACT' )
+                .from( "CONTACT" )
                 .select()
-                .in( 'mail', mailArray );
+                .in( "mail", mailArray );
 
         if ( error !== null )
         {
@@ -164,7 +164,7 @@ class ContactService
 
         let { data, error } =
             await supabaseService.getClient()
-                .from( 'CONTACT' )
+                .from( "CONTACT" )
                 .insert( contact );
 
         if ( error !== null )
@@ -186,9 +186,9 @@ class ContactService
 
         let { data, error } =
             await supabaseService.getClient()
-                .from( 'CONTACT' )
+                .from( "CONTACT" )
                 .update( contact )
-                .eq( 'id', contactId );
+                .eq( "id", contactId );
 
         if ( error !== null )
         {
@@ -208,9 +208,9 @@ class ContactService
 
         let { data, error } =
             await supabaseService.getClient()
-                .from( 'CONTACT' )
+                .from( "CONTACT" )
                 .delete()
-                .eq( 'id', contactId );
+                .eq( "id", contactId );
 
         if ( error !== null )
         {

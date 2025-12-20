@@ -28,7 +28,7 @@ export default function HomePage()
                     <div className="home-page-hero-image">
                         <img
                             src="/logo.svg"
-                            alt="LimeShoes Logo"
+                            alt="Lime Project Logo"
                             className="home-page-hero-logo"
                         />
                     </div>

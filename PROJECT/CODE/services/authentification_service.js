@@ -1,7 +1,7 @@
 // -- IMPORTS
 
-import { logError } from 'senselogic-opus';
-import { supabaseService } from './supabase_service';
+import { logError } from "senselogic-opus";
+import { supabaseService } from "./supabase_service";
 
 // -- TYPES
 

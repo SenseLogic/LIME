@@ -18,7 +18,7 @@ class BunnyService
         filePath
         )
     {
-        return this.baseUrl + '/' + this.storageZoneName + '/' + filePath;
+        return this.baseUrl + "/" + this.storageZoneName + "/" + filePath;
     }
 
     // ~~
@@ -34,11 +34,11 @@ class BunnyService
                 await fetch(
                     this.getFileUrl( storageFilePath ),
                     {
-                        method : 'PUT',
+                        method : "PUT",
                         headers :
                             {
-                                'AccessKey' : this.apiKey,
-                                'Content-Type' : 'application/octet-stream'
+                                "AccessKey" : this.apiKey,
+                                "Content-Type" : "application/octet-stream"
                             },
                         body : localFile
                     }
@@ -46,7 +46,7 @@ class BunnyService
 
             if ( !response.ok )
             {
-                throw new Error( 'Failed to upload file: ' + response.statusText );
+                throw new Error( "Failed to upload file: " + response.statusText );
             }
 
             let data = await response.json();
@@ -73,17 +73,17 @@ class BunnyService
                 await fetch(
                     this.getFileUrl( storageFilePath ),
                     {
-                        method : 'DELETE',
+                        method : "DELETE",
                         headers :
                             {
-                                'AccessKey' : this.apiKey
+                                "AccessKey" : this.apiKey
                             }
                     }
                     );
 
             if ( !response.ok )
             {
-                throw new Error( 'Failed to remove file: ' + response.statusText );
+                throw new Error( "Failed to remove file: " + response.statusText );
             }
 
             let data = await response.json();
