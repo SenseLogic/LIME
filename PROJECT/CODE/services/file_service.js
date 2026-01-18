@@ -16,11 +16,11 @@ export class FileService
     {
         if ( filePath.startsWith( "/bunny/" ) )
         {
-            return bunnyService.getFileUrl( filePath );
+            return bunnyService.getFileUrl( filePath.substring( 7 ) );
         }
         else if ( filePath.startsWith( "/supabase/" ) )
         {
-            return supabaseService.getFileUrl( filePath );
+            return supabaseService.getFileUrl( filePath.substring( 10 ) );
         }
         else
         {
@@ -36,16 +36,22 @@ export class FileService
         targetFileIsOverwritten = false
         )
     {
-        if ( filePath.startsWith( "/bunny/" ) )
+        if ( targetFilePath.startsWith( "/bunny/" ) )
         {
-            return await supabaseService.copyFile( sourceFile, targetFilePath, targetFileIsOverwritten );
+            return await bunnyService.copyFile( sourceFile, targetFilePath.substring( 7 ), targetFileIsOverwritten );
         }
-        else if ( filePath.startsWith( "/supabase/" ) )
+        else if ( targetFilePath.startsWith( "/supabase/" ) )
         {
-            return await supabaseService.copyFile( sourceFile, targetFilePath, targetFileIsOverwritten );
+            return await supabaseService.copyFile( sourceFile, targetFilePath.substring( 10 ), targetFileIsOverwritten );
         }
         else
         {
+            // For local file system, sourceFile must be a string path
+            if ( typeof sourceFile !== "string" )
+            {
+                throw new Error( "Local file copy requires sourceFile to be a file path string" );
+            }
+            
             return await Deno.copyFile( sourceFile, targetFilePath );
         }
     }
@@ -58,11 +64,11 @@ export class FileService
     {
         if ( targetFilePath.startsWith( "/bunny/" ) )
         {
-            return await bunnyService.removeFile( targetFilePath );
+            return await bunnyService.removeFile( targetFilePath.substring( 7 ) );
         }
         else if ( targetFilePath.startsWith( "/supabase/" ) )
         {
-            return await supabaseService.removeFile( targetFilePath );
+            return await supabaseService.removeFile( targetFilePath.substring( 10 ) );
         }
         else
         {

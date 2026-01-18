@@ -13,6 +13,7 @@ class StripeService
         )
     {
         this.client = null;
+        this.key = Deno.env.get( "LIME_PROJECT_STRIPE_KEY" );
     }
 
     // -- INQUIRIES
@@ -22,15 +23,8 @@ class StripeService
     {
         if ( this.client === null )
         {
-            let stripeSecretKey = Deno.env.get( "LIME_PROJECT_STRIPE_SECRET_KEY" );
-
-            if ( stripeSecretKey === undefined || stripeSecretKey === null )
-            {
-                throw new Error( "LIME_PROJECT_STRIPE_SECRET_KEY environment variable is not set" );
-            }
-
             this.client = new Stripe(
-                stripeSecretKey,
+                this.key,
                 {
                     apiVersion: "2024-11-20.acacia"
                 }

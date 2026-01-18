@@ -13,6 +13,7 @@ class ResendService
         )
     {
         this.client = null;
+        this.key = Deno.env.get( "LIME_PROJECT_RESEND_KEY" );
     }
 
     // -- INQUIRIES
@@ -22,7 +23,7 @@ class ResendService
     {
         if ( this.client === null )
         {
-            this.client = new Resend( Deno.env.get( "LIME_PROJECT_RESEND_KEY" ) );
+            this.client = new Resend( this.key );
         }
 
         return this.client;

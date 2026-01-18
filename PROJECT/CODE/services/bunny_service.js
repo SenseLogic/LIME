@@ -7,9 +7,9 @@ class BunnyService
     constructor(
         )
     {
-        this.baseUrl = Deno.env.get( LIME_PROJECT_BUNNY_STORAGE_URL );
-        this.storageZoneName = Deno.env.get( LIME_PROJECT_BUNNY_STORAGE_ZONE_NAME );
-        this.apiKey = Deno.env.get( LIME_PROJECT_BUNNY_STORAGE_KEY );
+        this.baseUrl = Deno.env.get( "LIME_PROJECT_BUNNY_STORAGE_URL" );
+        this.storageName = Deno.env.get( "LIME_PROJECT_BUNNY_STORAGE_NAME" );
+        this.apiKey = Deno.env.get( "LIME_PROJECT_BUNNY_STORAGE_KEY" );
     }
 
     // -- INQUIRIES
@@ -18,7 +18,7 @@ class BunnyService
         filePath
         )
     {
-        return this.baseUrl + "/" + this.storageZoneName + "/" + filePath;
+        return this.baseUrl + "/" + this.storageName + "/" + filePath;
     }
 
     // ~~
@@ -49,7 +49,20 @@ class BunnyService
                 throw new Error( "Failed to upload file: " + response.statusText );
             }
 
-            let data = await response.json();
+            let data = null;
+
+            try
+            {
+                let text = await response.text();
+
+                if ( text.length > 0 )
+                {
+                    data = JSON.parse( text );
+                }
+            }
+            catch
+            {
+            }
 
             return data;
         }
@@ -59,6 +72,30 @@ class BunnyService
 
             return null;
         }
+    }
+
+    // ~~
+
+    async copyFile(
+        localFile,
+        storageFilePath,
+        storageFileIsOverwritten = false
+        )
+    {
+        let fileData;
+
+        if ( typeof localFile === "string" )
+        {
+            fileData = await Deno.readFile( localFile );
+        }
+        else
+        {
+            fileData = localFile;
+        }
+
+        // Note: Bunny CDN doesn't support overwrite flag in PUT requests
+        // Files are automatically overwritten if they exist
+        return await this.uploadFile( fileData, storageFilePath );
     }
 
     // ~~
@@ -86,7 +123,20 @@ class BunnyService
                 throw new Error( "Failed to remove file: " + response.statusText );
             }
 
-            let data = await response.json();
+            let data = null;
+
+            try
+            {
+                let text = await response.text();
+
+                if ( text.length > 0 )
+                {
+                    data = JSON.parse( text );
+                }
+            }
+            catch
+            {
+            }
 
             return data;
         }
