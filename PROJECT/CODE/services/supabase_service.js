@@ -1,5 +1,6 @@
 // -- IMPORTS
 
+import { getCookies, setCookie } from "std/http/cookie.ts";
 import { logError } from "senselogic-opus";
 import { createServerClient } from "@supabase/ssr";
 
@@ -12,9 +13,9 @@ class SupabaseService
     constructor(
         )
     {
-        this.client = null;
-        this.databaseUrl = Deno.env.get( "LIME_PROJECT_SUPABASE_DATABASE_URL" );
+        this.anonymousClient = null;
         this.databaseKey = Deno.env.get( "LIME_PROJECT_SUPABASE_DATABASE_KEY" );
+        this.databaseUrl = Deno.env.get( "LIME_PROJECT_SUPABASE_DATABASE_URL" );
         this.storageName = Deno.env.get( "LIME_PROJECT_SUPABASE_STORAGE_NAME" );
         this.storageUrl = Deno.env.get( "LIME_PROJECT_SUPABASE_STORAGE_URL" );
     }
@@ -30,70 +31,94 @@ class SupabaseService
 
     // -- OPERATIONS
 
-    getClient(
-        request,
-        reply
+    getAnonymousClient(
         )
     {
-        if ( this.client === null )
+        if ( this.anonymousClient === null )
         {
-            this.client =
-                createServerClient(
-                    this.databaseUrl,
-                    this.databaseKey,
-                    {
-                        cookies:
-                        {
-                            get:
-                                ( key ) =>
-                                {
-                                    if ( request
-                                            && request.cookies )
-                                    {
-                                        return decodeURIComponent( request.cookies[ key ] ?? "" )
-                                    }
-                                    else
-                                    {
-                                        return "";
-                                    }
-                                },
-                            set:
-                                ( key, value, options ) =>
-                                {
-                                    if ( reply )
-                                    {
-                                        reply.cookie(
-                                            key,
-                                            encodeURIComponent( value ),
-                                            {
-                                                ...options,
-                                                sameSite: "Lax",
-                                                httpOnly: true
-                                            }
-                                            );
-                                    }
-                                },
-                            remove:
-                                ( key, options ) =>
-                                {
-                                    if ( reply )
-                                    {
-                                        reply.cookie(
-                                            key,
-                                            "",
-                                            {
-                                                ...options,
-                                                httpOnly: true
-                                            }
-                                            );
-                                    }
-                                }
-                        }
-                    }
-                    );
+            this.anonymousClient = createServerClient( this.databaseUrl, this.databaseKey );
         }
 
-        return this.client;
+        return this.anonymousClient;
+    }
+
+    // ~~
+
+    getAuthenticatedClient(
+        request,
+        responseHeaders
+        )
+    {
+        return (
+            createServerClient(
+            this.databaseUrl,
+            this.databaseKey,
+            {
+                cookies:
+                {
+                    getAll:
+                        async () =>
+                        {
+                            if ( request && request.headers )
+                            {
+                                let cookies = getCookies( request.headers );
+
+                                return (
+                                    Object.entries( cookies ).map(
+                                        ( [ name, value ] ) => ( { name, value } )
+                                        ) ?? []
+                                    );
+                            }
+                            else
+                            {
+                                return [];
+                            }
+                        },
+                    setAll:
+                        async ( cookiesToSet ) =>
+                        {
+                            if ( responseHeaders )
+                            {
+                                for ( const { name, value, options = {} } of cookiesToSet )
+                                {
+                                    setCookie(
+                                        responseHeaders,
+                                        {
+                                            name,
+                                            value,
+                                            path: options.path ?? "/",
+                                            domain: options.domain,
+                                            secure: options.secure ?? false,
+                                            httpOnly: options.httpOnly ?? true,
+                                            sameSite: options.sameSite ?? "Lax",
+                                            maxAge: options.maxAge,
+                                            expires: options.expires
+                                        }
+                                    );
+                                }
+                            }
+                        }
+                }
+            }
+            )
+        );
+    }
+
+    // ~~
+
+    getClient(
+        request = null,
+        responseHeaders = null
+        )
+    {
+        if ( !request && !responseHeaders )
+        {
+            return this.getAnonymousClient();
+        }
+        else
+        {
+            return this.getAuthenticatedClient( request, responseHeaders );
+        }
     }
 
     // ~~
@@ -173,11 +198,11 @@ class SupabaseService
         email,
         password,
         request = null,
-        reply = null
+        responseHeaders = null
         )
     {
         let { user, error } =
-            await this.getClient( request, reply ).auth.signUp(
+            await this.getClient( request, responseHeaders ).auth.signUp(
                   {
                       email,
                       password
@@ -198,11 +223,11 @@ class SupabaseService
         email,
         password,
         request = null,
-        reply = null
+        responseHeaders = null
         )
     {
-        let { user, error } =
-            await this.getClient( request, reply ).auth.signIn(
+        let { data, error } =
+            await this.getClient( request, responseHeaders ).auth.signInWithPassword(
                   {
                       email,
                       password
@@ -214,18 +239,18 @@ class SupabaseService
             logError( error );
         }
 
-        return user;
+        return data?.user ?? null;
     }
 
     // ~~
 
     async signOutUser(
         request = null,
-        reply = null
+        responseHeaders = null
         )
     {
         let { error } =
-            await this.getClient( request, reply ).auth.signOut();
+            await this.getClient( request, responseHeaders ).auth.signOut();
 
         if ( error !== null )
         {

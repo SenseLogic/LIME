@@ -1,6 +1,6 @@
 // -- IMPORTS
 
-import { createCappedImage, createCoveredImage } from "senselogic-pixi";
+import { createCappedImage, createCoveredImage } from "senselogic-pika";
 import { bunnyService } from "./bunny_service.js";
 import { supabaseService } from "./supabase_service.js";
 
@@ -46,12 +46,11 @@ export class FileService
         }
         else
         {
-            // For local file system, sourceFile must be a string path
             if ( typeof sourceFile !== "string" )
             {
                 throw new Error( "Local file copy requires sourceFile to be a file path string" );
             }
-            
+
             return await Deno.copyFile( sourceFile, targetFilePath );
         }
     }
@@ -165,13 +164,13 @@ export class FileService
         )
     {
         let temporaryFilePath = await Deno.makeTempFile( { suffix: ".mp4" } );
-        
+
         try
         {
             let command = new Deno.Command(
                 "ffmpeg",
                 {
-                    args: 
+                    args:
                         [
                             "-y",
                             "-i", sourceVideoFile,

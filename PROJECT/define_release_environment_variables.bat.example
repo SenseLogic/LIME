@@ -1,7 +1,7 @@
 setx LIME_PROJECT_BUNNY_STORAGE_KEY ""
 setx LIME_PROJECT_BUNNY_STORAGE_NAME ""
 setx LIME_PROJECT_BUNNY_STORAGE_URL ""
-setx LIME_PROJECT_RESEND_EMAIL" "contact@lime-project.com"
+setx LIME_PROJECT_RESEND_EMAIL "contact@lime-project.com"
 setx LIME_PROJECT_RESEND_KEY "re_xxx_xxx"
 setx LIME_PROJECT_STRIPE_KEY "sk_live_xxx"
 setx LIME_PROJECT_SUPABASE_DATABASE_HOST "db.xxx.supabase.co"
