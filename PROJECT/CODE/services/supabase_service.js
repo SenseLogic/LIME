@@ -1,6 +1,6 @@
 // -- IMPORTS
 
-import { getCookies, setCookie } from "std/http/cookie.ts";
+import { getCookies, setCookie } from "$std/http/cookie.ts";
 import { logError } from "senselogic-opus";
 import { createServerClient } from "@supabase/ssr";
 

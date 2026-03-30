@@ -25,12 +25,12 @@ Cursor AI agents should treat this as the main reference when generating or upda
 - **Emails**: Resend for transactional email.
 - **Image Processing**: Sharp and Senselogic-pika for high‑performance image manipulation (resizing, format conversion, optimization).
 - **Internationalization**: Senselogic‑lingo for multilingual text management and localization (English, French, German).
-- **Definition Files**: Senselogic‑def for reading and parsing structured definition files (application data, configuration) with multilingual texts and data structures.
+- **Definition Files**: Senselogic-gson for reading and parsing structured definition files (application data, configuration) with multilingual texts and data structures.
 - **Utilities**: Senselogic‑opus and Senselogic-iota for common utility functions (map operations, error logging, UUID and TUID generation) used across services.
 - **Storage**: Bunny CDN for media file storage and delivery.
 
 **Core application files**
-- **`application.js`**: Main application data loader that reads definition files (`data/application_data.def`) and provides centralized access to all application data (products, categories, brands, pages, etc.). Also handles language code detection and path manipulation for multilingual routing.
+- **`application.js`**: Main application data loader that reads definition files (`data/application_data.gson`) and provides centralized access to all application data (products, categories, brands, pages, etc.). Also handles language code detection and path manipulation for multilingual routing.
 - **`base/image.js`**: Utility module for image processing using Sharp (reading, writing, resizing, format conversion to AVIF).
 - **`services/authentification_service.js`**: Handles user authentication (sign up, sign in, sign out) via Supabase Auth.
 - **`services/bunny_service.js`**: Manages file storage and CDN operations with Bunny CDN.
@@ -313,7 +313,7 @@ Main concepts and entities:
   - Currently marked as "dropped" in schema (to be implemented).
 
 - **Products**
-  - Products are currently managed via definition files (`data/product_array.def`) rather than database tables.
+  - Products are currently managed via definition files (`data/product_array.gson`) rather than database tables.
   - Product structure includes:
     - `genderSlug`: links to gender lookup (men, women).
     - `categorySlug`: links to category lookup (casual, running, tennis).
@@ -324,26 +324,26 @@ Main concepts and entities:
     - `imagePath`: path to product image (e.g., `/image/product/product_1.avif`).
 
 - **Lookup tables (definition files)**
-  - `GENDER`: gender options (men, women) – defined in `data/gender_by_slug_map.def`.
-  - `CATEGORY`: product categories (casual, running, tennis) – defined in `data/category_by_slug_map.def`.
-  - `BRAND`: shoe brands (nike, adidas, puma, new-balance, asics, reebok, saucony, brooks, mizuno, salomon, skechers, fila, converse, vans, altra, etc.) – defined in `data/brand_by_slug_map.def`.
-  - `SIZE`: shoe sizes (extra-small, small, medium, large, extra-large) – defined in `data/size_by_slug_map.def`.
-  - `LANGUAGE`: supported languages (English, French, German) – defined in `data/language_by_code_map.def`.
-  - `TEXT`: general text strings for localization – defined in `data/text_by_code_map.def`.
+  - `GENDER`: gender options (men, women) – defined in `data/gender_by_slug_map.gson`.
+  - `CATEGORY`: product categories (casual, running, tennis) – defined in `data/category_by_slug_map.gson`.
+  - `BRAND`: shoe brands (nike, adidas, puma, new-balance, asics, reebok, saucony, brooks, mizuno, salomon, skechers, fila, converse, vans, altra, etc.) – defined in `data/brand_by_slug_map.gson`.
+  - `SIZE`: shoe sizes (extra-small, small, medium, large, extra-large) – defined in `data/size_by_slug_map.gson`.
+  - `LANGUAGE`: supported languages (English, French, German) – defined in `data/language_by_code_map.gson`.
+  - `TEXT`: general text strings for localization – defined in `data/text_by_code_map.gson`.
 
 - **Content data (definition files)**
-  - `BLOG_POST`: blog posts with title, excerpt, date, author, image, category – defined in `data/blog_post_array.def`.
-  - `BLOG_CATEGORY`: blog post categories – defined in `data/blog_category_array.def`.
-  - `TESTIMONIAL`: customer testimonials with date, name, text, rating, image – defined in `data/testimonial_array.def`.
-  - `HEADER_MENU_BUTTON`: navigation menu items – defined in `data/header_menu_button_array.def`.
+  - `BLOG_POST`: blog posts with title, excerpt, date, author, image, category – defined in `data/blog_post_array.gson`.
+  - `BLOG_CATEGORY`: blog post categories – defined in `data/blog_category_array.gson`.
+  - `TESTIMONIAL`: customer testimonials with date, name, text, rating, image – defined in `data/testimonial_array.gson`.
+  - `HEADER_MENU_BUTTON`: navigation menu items – defined in `data/header_menu_button_array.gson`.
 
 - **Page-specific data (definition files)**
-  - `Home`: defined in `home_page.def`
-  - `About`: defined in `about_page.def`
-  - `Products`: defined in `products_page.def`
-  - `Blog`: defined in `blog_page.def`
-  - `Testimonials`: defined in `testimonials_page.def`
-  - `Contact`: defined in `contact_page.def`.
+  - `Home`: defined in `home_page.gson`
+  - `About`: defined in `about_page.gson`
+  - `Products`: defined in `products_page.gson`
+  - `Blog`: defined in `blog_page.gson`
+  - `Testimonials`: defined in `testimonials_page.gson`
+  - `Contact`: defined in `contact_page.gson`.
 
 - **Contacts**
   - `CONTACT`: stores contact form submissions (name, email, message) for the `/contact` page.

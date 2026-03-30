@@ -11,7 +11,7 @@ import
     setLanguageCode,
     setLanguageSeparator
 } from "senselogic-lingo";
-import { readDefFile } from "senselogic-def-file";
+import { readGsonFileValue } from "senselogic-gson";
 
 let applicationData = null;
 
@@ -63,7 +63,7 @@ export function getApplicationData()
     {
         try
         {
-            applicationData = readDefFile( "data/application_data.def", { readTextFileFunction: readDataFile } );
+            applicationData = readGsonFileValue( "data/application_data.gson", true, readDataFile );
         }
         catch ( error )
         {
