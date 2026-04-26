@@ -2,41 +2,41 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $_languageCode_about from "./routes/[languageCode]/about.jsx";
-import * as $_languageCode_blog from "./routes/[languageCode]/blog.jsx";
-import * as $_languageCode_contact from "./routes/[languageCode]/contact.jsx";
-import * as $_languageCode_index from "./routes/[languageCode]/index.jsx";
-import * as $_languageCode_products from "./routes/[languageCode]/products.jsx";
-import * as $_languageCode_testimonials from "./routes/[languageCode]/testimonials.jsx";
-import * as $_404 from "./routes/_404.jsx";
-import * as $_app from "./routes/_app.jsx";
-import * as $about from "./routes/about.jsx";
-import * as $api_contact from "./routes/api/contact.js";
-import * as $blog from "./routes/blog.jsx";
-import * as $contact from "./routes/contact.jsx";
-import * as $index from "./routes/index.jsx";
-import * as $products from "./routes/products.jsx";
-import * as $testimonials from "./routes/testimonials.jsx";
+import * as $_languageCode_about from "./routes/[languageCode]/about.tsx";
+import * as $_languageCode_blog from "./routes/[languageCode]/blog.tsx";
+import * as $_languageCode_contact from "./routes/[languageCode]/contact.tsx";
+import * as $_languageCode_index from "./routes/[languageCode]/index.tsx";
+import * as $_languageCode_products from "./routes/[languageCode]/products.tsx";
+import * as $_languageCode_testimonials from "./routes/[languageCode]/testimonials.tsx";
+import * as $_404 from "./routes/_404.tsx";
+import * as $_app from "./routes/_app.tsx";
+import * as $about from "./routes/about.tsx";
+import * as $api_contact from "./routes/api/contact.ts";
+import * as $blog from "./routes/blog.tsx";
+import * as $contact from "./routes/contact.tsx";
+import * as $index from "./routes/index.tsx";
+import * as $products from "./routes/products.tsx";
+import * as $testimonials from "./routes/testimonials.tsx";
 
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
-    "./routes/[languageCode]/about.jsx": $_languageCode_about,
-    "./routes/[languageCode]/blog.jsx": $_languageCode_blog,
-    "./routes/[languageCode]/contact.jsx": $_languageCode_contact,
-    "./routes/[languageCode]/index.jsx": $_languageCode_index,
-    "./routes/[languageCode]/products.jsx": $_languageCode_products,
-    "./routes/[languageCode]/testimonials.jsx": $_languageCode_testimonials,
-    "./routes/_404.jsx": $_404,
-    "./routes/_app.jsx": $_app,
-    "./routes/about.jsx": $about,
-    "./routes/api/contact.js": $api_contact,
-    "./routes/blog.jsx": $blog,
-    "./routes/contact.jsx": $contact,
-    "./routes/index.jsx": $index,
-    "./routes/products.jsx": $products,
-    "./routes/testimonials.jsx": $testimonials,
+    "./routes/[languageCode]/about.tsx": $_languageCode_about,
+    "./routes/[languageCode]/blog.tsx": $_languageCode_blog,
+    "./routes/[languageCode]/contact.tsx": $_languageCode_contact,
+    "./routes/[languageCode]/index.tsx": $_languageCode_index,
+    "./routes/[languageCode]/products.tsx": $_languageCode_products,
+    "./routes/[languageCode]/testimonials.tsx": $_languageCode_testimonials,
+    "./routes/_404.tsx": $_404,
+    "./routes/_app.tsx": $_app,
+    "./routes/about.tsx": $about,
+    "./routes/api/contact.ts": $api_contact,
+    "./routes/blog.tsx": $blog,
+    "./routes/contact.tsx": $contact,
+    "./routes/index.tsx": $index,
+    "./routes/products.tsx": $products,
+    "./routes/testimonials.tsx": $testimonials,
   },
   islands: {},
   baseUrl: import.meta.url,

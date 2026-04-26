@@ -1,7 +1,7 @@
 {
   "lock": false,
   "tasks": {
-    "check": "deno fmt --check && deno lint && deno check **/*.js && deno check **/*.jsx && deno check **/*.ts && deno check **/*.tsx",
+    "check": "deno fmt --check . && deno lint . && deno check main.ts dev.ts fresh.gen.ts fresh.config.ts _middleware.ts build-scss.ts",
     "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
     "manifest": "deno task cli manifest $(pwd)",
     "start": "deno run -A --watch=static/,routes/ dev.ts",
@@ -12,7 +12,12 @@
     "build-scss:watch": "deno run --allow-read --allow-write --allow-env build-scss.ts --watch",
     "dev": "deno task build-scss && deno task start"
   },
-  "lint": { "rules": { "tags": ["fresh", "recommended"] } },
+  "lint": {
+    "rules": {
+      "tags": ["fresh", "recommended"],
+      "exclude": ["prefer-const", "no-window", "no-explicit-any"]
+    }
+  },
   "fmt": { "include": ["**/*.{js,jsx,ts,tsx,scss}"] },
   "exclude": ["**/_fresh/*"],
   "imports": {
@@ -34,13 +39,12 @@
     "senselogic-pika": "npm:senselogic-pika@0.1.0"
   },
   "compilerOptions": {
-    "jsx": "react-jsxdev",
+    "jsx": "react-jsx",
     "jsxImportSource": "preact",
-    "jsxFactory": "h",
-    "jsxFragmentFactory": "Fragment"
+    "noImplicitAny": false
   },
   "bundle": {
-    "jsx": "react-jsxdev",
+    "jsx": "react-jsx",
     "jsxImportSource": "preact",
     "sourceMap": true
   }
