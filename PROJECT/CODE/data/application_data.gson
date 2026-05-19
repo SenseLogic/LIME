@@ -1,6 +1,6 @@
 {
-    "textByCodeMap":
-        ‴‼@text_by_code_map.gson‴,
+    "textBySlugMap":
+        ‴‼@text_by_slug_map.gson‴,
     "languageByCodeMap":
         ‴‼@language_by_code_map.gson‴,
     "headerMenuButtonArray":

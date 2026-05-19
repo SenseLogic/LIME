@@ -1,0 +1,17 @@
+// -- IMPORTS
+
+import { setRequestLanguageCode } from "../../application.ts";
+import ContactPage from "../../components/ContactPage.tsx";
+
+// -- FUNCTIONS
+
+export default function Contact(
+    props
+    )
+{
+    setRequestLanguageCode( props, props.params.languageCode );
+
+    return (
+        <ContactPage />
+        );
+}

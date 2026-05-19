@@ -1,14 +1,14 @@
-import { FreshContext } from "$fresh/server.ts";
-import
-{
-    setRequestLanguageCode,
-    getRequestLanguageCode,
-    getPathLanguageCode,
-    getPathWithoutLanguage,
-    isValidLanguageCode
-} from "./application.js";
+// -- IMPORTS
 
-export async function handler( req: Request, ctx: FreshContext )
+import { FreshContext } from "$fresh/server.ts";
+import { getPathLanguageCode, getPathWithoutLanguage, setRequestLanguageCode } from "./application.ts";
+
+// -- FUNCTIONS
+
+export function handler(
+    req: Request,
+    ctx: FreshContext
+    )
 {
     let url = new URL( req.url );
     let pathname = url.pathname;
@@ -23,7 +23,9 @@ export async function handler( req: Request, ctx: FreshContext )
     else
     {
         let pathWithoutLanguage = getPathWithoutLanguage( pathname );
-        let redirectUrl = `/${languageCode}${pathWithoutLanguage === "/" ? "" : pathWithoutLanguage}`;
+        let redirectUrl = `/${ languageCode }${
+            pathWithoutLanguage === "/" ? "" : pathWithoutLanguage
+            }`;
 
         return new Response(
             null,
