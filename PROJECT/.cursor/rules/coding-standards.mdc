@@ -1,19 +1,19 @@
 ---
-description: TypeScript coding standards
+description: coding standards
 globs:
-  - "./**/*.ts"
-  - "./**/*.tsx"
+  - "CODE/**/*.ts"
+  - "CODE/**/*.tsx"
+  - "CODE/**/*.scss"
 alwaysApply: true
 ---
 # TypeScript Coding Standards
 
-Every single line of TypeScript source code of this codebase must strictly adhere to the following rules, without any exception:
+Every single line of TypeScript source code of this codebase must strictly adhere to the following rules, without any exception. Those rules must be treated as a hard rule system, not stylistic preference.
+
+## Formatting
 
 - Four-space indentation: use exactly four spaces per nesting level; do not use tabs for indentation. This applies to TypeScript, HTML, CSS and any other code of this project.
-- Self-documenting code only (prefer descriptive names over explanatory comments).
 - Prefer explicit and readable code over compact code.
-- Identifiers follow usual English ordering rules (`FirstPointCloudIndex`, `ConfigurationFilePath`, `PointCloudFolderPath`) and use no shortened words, abbreviations (except `Url`) or single-letter names (except for axis names in 3D vectors).
-- No plural-form identifiers.
 - Aligned braces (Allman style) and keep the opening and closing braces always alone on their own line.
 - Each function parameter definition must be on its own line with the closing `)` of the parameter list starting its own line.
 - When an arrow function definition spans multiple lines, the arrow `=>` must end its own line, and the function code must be indented on the next line(s).
@@ -25,6 +25,15 @@ Every single line of TypeScript source code of this codebase must strictly adher
 - In multiline arithmetic expressions, put the operator (`+`, etc) at the start of the continued line, aligned with the first character of its first left operand.
 - When an assignment spans multiple lines, the assignment operator (`=`, `+=`, etc) must be indented on the next line and start the first line of the right-hand side value.
 - For non-empty `()` and `[]`, add spaces inside delimiters: `xxxxx( 10, xxxxx[ 10 ] )`. Keep empty pairs compact: `xxxxx()`, `xxxxx[]`.
+- Keep a blank line before and after a multiline call or assignment, unless it is after the opening `{` of a block or before the closing `}` of a block.
+- Keep a blank line before `return`, `if`, `for`, `while`, `for-in`, `for-of`, `switch`, `try`, `catch`, `finally`, `do`, and `else` when the previous non-empty line does not end with `{`.
+- No trailing commas in any comma-separated construct.
+
+## Naming and sections
+
+- Self-documenting code only (prefer descriptive names over explanatory comments).
+- Identifiers follow usual English ordering rules (`FirstPointCloudIndex`, `ConfigurationFilePath`, `PointCloudFolderPath`) and use no shortened words, abbreviations (except `Url`) or single-letter names (except for axis names in 3D vectors).
+- No plural-form identifiers.
 - Arrow functions can only be used for getters, field values and call arguments. They can't be used to define the constructors and methods of a class.
 - Use standard section comments:
   - `// -- IMPORTS`
@@ -41,9 +50,16 @@ Every single line of TypeScript source code of this codebase must strictly adher
 - Standard section comments must only be present for non-empty sections.
 - Insert a standard separating comment `// ~~` between types, methods or functions defined within the same standard section.
 - Keep an empty line before and after any of those `// -- ...' and `// ~~` standard section and separating comments, unless the standard comment is at the start of a file or `{` block.
-- Keep an empty line before and after a multiline call or assignment, unless it is after the opening `{` of a block or before the closing `}` of a block.
 - Try to define the code inside sections following the same order as the above section comments, and within those sections, define constants, types, attributes, methods etc before the other elements of code that are using them (i.e. having the used code defined before the code that uses it, allowing for single-read full code understanding).
-- No trailing commas in any comma-separated construct.
+- Use `Array` or `Map` suffixes matching the collection type (`ProductArray`, `ProductByIdMap`, `productArray`, `productByIdMap`).
+- Use the `Index` suffix for element indices (`ProductIndex`, `productIndex`).
+- Use the `Count` suffix for element counts (`ProductCount`, `productCount`).
+- Use `PascalCase` for classes, constructors, and public constants at module scope.
+- Use `camelCase` for methods, functions, parameters, local variables, object properties, and enum-like members on constant objects.
+- Prefer `let` over `const` even when the variable is not reassigned, using `const` only for true fixed constants defined at class or module level.
+
+## Control flow
+
 - Use structured positive-branch control flow:
   - Keep the main execution path inside the positive branch of conditions.
   - Place early exit statements (`return`, `break`, `continue`, `throw`, etc.) inside the negative branch (`else`) whenever the conditional also contains the main execution path.
@@ -82,14 +98,61 @@ for ( someLoop )
     doSomething();
 }
 ```
+
+## Data evolution
+
 - Don't add any legacy data compatibility code to the codebase when some data structures change. As this project is still not deployed in production, the code and data must remain perfecly in sync.
 
-Those rules must be treated as a hard rule system, not stylistic preference.
+## Styling Conventions
 
-Here is sample TypeScript code illustrating those rules:
+- Do not introduce Tailwind CSS or utility-class frameworks.
+- Only use semantic CSS defined in global or shared SCSS files.
+- CSS classes specific to a component or island must be prefixed with the component name in `slug-case`
+  (`HeaderMenu.tsx` => `.header-menu`, `.header-menu-button`, `.header-menu-button-text`).
+- Use unitless values for line heights.
+- rem values for font sizes and all other static sizes, using only multiples of 0.1rem or 0.25rem).
+- px values only for tiny static sizes, like 1 or 2 pixels.
+- Use %, dvh, lvw, vmin and vmax values for dynamic sizes.
+- Use zero or one decimal in your sizes (0.9rem, 1.2vh), unless if a second decimal is actually required (*.25rem, *.75rem).
+- Group CSS rules by category, in this order:
+```css
+// -- IMPORTS
+
+...
+
+// -- CONSTANTS
+
+...
+
+// -- VARIABLES
+
+...
+
+// -- FUNCTIONS
+
+...
+
+// -- MIXINS
+
+...
+
+// -- FONTS
+
+...
+
+// -- ELEMENTS
+
+...
+
+// -- CLASSES
+
+...
+```
+
+
+## TypeScript reference sample
 
 ```typescript
-
 // -- CONSTANTS
 
 const
@@ -306,16 +369,12 @@ function main(
 main();
 ```
 
-```
+## TSX reference sample
+
+```typescript
 // -- IMPORTS
 
-import
-    {
-        getApplicationData,
-        getLanguageCodePath,
-        getLocalizedText
-    }
-    from "../application.ts";
+import { getApplicationData, getLanguageCodePath, getLocalizedText } from "../application.ts";
 
 // -- FUNCTIONS
 
