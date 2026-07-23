@@ -3,6 +3,9 @@ ExcludeFiles ./fix.*
 ReadFiles
 Edit label text
 ReplaceText
+    LIME_PROJECT
+    LIME_PROJECT
+ReplaceText
     Lime Project
     Lime Project
 ReplaceText
