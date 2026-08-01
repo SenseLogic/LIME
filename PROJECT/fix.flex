@@ -1,4 +1,4 @@
-IncludeFiles .//*.bat .//*.bd .//*.bs .//*.bt .//*.css .//*.def .//*.js .//*.json .//*.jsx .//*.gson .//*.md .//*.sql .//*.txt
+IncludeFiles .//*.bat .//*.bd .//*.bs .//*.bt .//*.css .//*.gson .//*.js .//*.json .//*.jsx .//*.gson .//*.md .//*.sql .//*.txt
 ExcludeFiles ./fix.*
 ReadFiles
 Edit label text

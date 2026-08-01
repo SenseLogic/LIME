@@ -9,7 +9,7 @@ Fresh 2 startup project.
 *   Deno
 *   Fresh 2
 *   SCSS
-*   Def
+*   Gson
 *   Lingo
 
 ## Version
